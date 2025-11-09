@@ -15,6 +15,12 @@ export default [
         languageOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
+            globals: {
+                console: true,
+                window: true,
+                document: true,
+                URL: true
+            },
         },
     },
 ]
