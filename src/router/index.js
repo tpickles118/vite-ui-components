@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
+import Home from '@/views/HomeView.vue'
+import About from '@/views/AboutView.vue'
 import UsersAPI from '@/views/UsersApi.vue'
 import BadgeView from '@/views/daisy-wrapper-views/BadgeView.vue'
 
