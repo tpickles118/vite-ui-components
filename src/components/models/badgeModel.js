@@ -12,7 +12,13 @@ export class BadgeModel {
         isGhost = false,
         label = 'Badge',
     } = {}) {
-        this.id = id;
+        // make `id` effectively read-only on the instance
+        Object.defineProperty(this, 'id', {
+            value: id,
+            writable: false,
+            configurable: false,
+            enumerable: true,
+        })
         this.size = size;
         this.color = color;
         this.isSoft = isSoft;
@@ -61,5 +67,48 @@ export class BadgeModel {
     setLabel(value) { 
         this.label = value; 
         return this;
+    }
+
+    // Serializes the model to a plain object (useful for persistence / tests)
+    toJSON() {
+        return {
+            id: this.id,
+            size: this.size,
+            color: this.color,
+            isSoft: this.isSoft,
+            isOutline: this.isOutline,
+            isDash: this.isDash,
+            isGhost: this.isGhost,
+            label: this.label,
+        }
+    }
+
+    // Recreate a BadgeModel from a plain object (reverse of toJSON)
+    static fromJSON(obj = {}) {
+        return new BadgeModel({
+            id: obj.id,
+            size: obj.size,
+            color: obj.color,
+            isSoft: obj.isSoft,
+            isOutline: obj.isOutline,
+            isDash: obj.isDash,
+            isGhost: obj.isGhost,
+            label: obj.label,
+        })
+    }
+
+    // Compare by id when available, else compare field-by-field
+    equals(other) {
+        if (!other) return false
+        if (other.id) return this.id === other.id
+        return (
+            this.size === other.size &&
+            this.color === other.color &&
+            this.isSoft === other.isSoft &&
+            this.isOutline === other.isOutline &&
+            this.isDash === other.isDash &&
+            this.isGhost === other.isGhost &&
+            this.label === other.label
+        )
     }
 }

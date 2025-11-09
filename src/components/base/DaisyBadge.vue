@@ -37,8 +37,8 @@ const classes = computed(() => {
 
 <template>
     <span
-        :class="classes"
         :id="badgeModel?.id"
+        :class="classes"
         role="status"
         aria-label="badge"
     >
