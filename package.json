@@ -1,0 +1,44 @@
+{
+    "name": "vite-ui-components",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "description": "UI Component",
+    "keywords": [
+        "vue3",
+        "vite",
+        "template",
+        "baseline",
+        "daisyui",
+        "tailwindcss",
+        "vue-router",
+        "axios",
+        "eslint",
+        "prettier",
+        "starter-template"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --fix",
+        "format": "prettier . --write"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.17",
+        "axios": "^1.13.2",
+        "daisyui": "^5.4.7",
+        "tailwindcss": "^4.1.17",
+        "vue": "^3.5.22",
+        "vue-router": "^4.6.3"
+    },
+    "devDependencies": {
+        "@eslint/compat": "^1.4.1",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^10.5.1",
+        "prettier": "^3.6.2",
+        "vite": "^7.1.7"
+    }
+}
