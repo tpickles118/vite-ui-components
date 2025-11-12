@@ -50,6 +50,10 @@ const classes = computed(() => {
 
     return cls
 })
+
+// TODO: add events
+// TODO: add button support once button model is done
+
 </script>
 
 <template>
