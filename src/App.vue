@@ -1,6 +1,9 @@
 <script setup>
+import { HomeIcon, IdentificationIcon } from '@heroicons/vue/24/outline'
+
 const appName = import.meta.env.VITE_APP_NAME
 const debugMode = import.meta.env.VITE_DEBUG_MODE === 'true'
+
 </script>
 
 <template>
@@ -11,8 +14,8 @@ const debugMode = import.meta.env.VITE_DEBUG_MODE === 'true'
             </div>
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1">
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/about">About</router-link></li>
+                    <li><router-link to="/"><HomeIcon class="size-4" />Home</router-link></li>
+                    <li><router-link to="/about"><IdentificationIcon class="size=4"/>About</router-link></li>
                 </ul>
             </div>
         </nav>
