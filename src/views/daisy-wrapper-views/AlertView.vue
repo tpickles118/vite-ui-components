@@ -1,12 +1,18 @@
 <script setup>
-import { AlertModel } from '@/components/models/alertModel.js';
+import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js';
 import  DaisyAlert  from '@/components/base/DaisyAlert.vue';
+import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
-const successAlert = new AlertModel({ type: 'SUCCESS', message: 'This is a success alert!' });
-const errorAlert = new AlertModel({ type: 'ERROR', message: 'This is an error alert!' });
-const infoAlert = new AlertModel({ type: 'INFO', message: 'This is an info alert!', direction: 'vertical' });  
-const warningAlert = new AlertModel({ type: 'WARNING', message: 'This is a warning alert!'});
+const successAlert = new AlertModel({ type: 'SUCCESS', message: 'This is a success alert with AlertModel!' });
+const errorAlert = new AlertModel({ type: 'ERROR', message: 'This is an error alert with AlertModel!' });
+const infoAlert = new AlertModel({ type: 'INFO', message: 'This is an info alert with AlertModel!', direction: 'vertical' });  
+const warningAlert = new AlertModel({ type: 'WARNING', message: 'This is a warning alert with AlertModel!'});
+const Warning = new WarningAlertModel({ message: 'This is another success alert using WarningAlertModel!' });
 
+const customAlert = new CustomAlertModel({ 
+    message: 'This is a custom alert with a custom type!', 
+    customIcon: RocketLaunchIcon
+});
 
 
 </script>
@@ -21,8 +27,14 @@ const warningAlert = new AlertModel({ type: 'WARNING', message: 'This is a warni
             <DaisyAlert :alert-model="errorAlert" />
             <DaisyAlert :alert-model="infoAlert" />
             <DaisyAlert :alert-model="warningAlert" />
+            <DaisyAlert :alert-model="Warning" />
             <!-- slot example -->
             <DaisyAlert :alert-model="successAlert">Overridden slot message for success alert</DaisyAlert>
+            <DaisyAlert :alert-model="customAlert" class=" alert-success">
+                <template #icon>
+                    <component :is="customAlert.customIcon" class="size-6" />
+                </template>
+            </DaisyAlert>
         </div>
     </div>
 </template>

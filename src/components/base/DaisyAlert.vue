@@ -23,7 +23,13 @@ const iconMap = {
     ERROR: ExclamationCircleIcon,
 }
 
+// Use slot > custom > fallback icon
 const currentIcon = computed(() => {
+    // Prefer customIcon provided in model if present
+    if (props.alertModel?.customIcon) {
+        return props.alertModel.customIcon
+    }
+    // Otherwise use mapped icon
     return iconMap[props.alertModel?.type] || null
 })
 
@@ -50,11 +56,29 @@ const classes = computed(() => {
 
     return cls
 })
+
+// TODO: add events
+// TODO: add button support once button model is done
+// TODO: add animation options
+
 </script>
 
 <template>
     <div :id="alertModel?.id" :class="classes" role="alert" aria-label="alert">
-        <component :is="currentIcon" v-if="currentIcon" class="size-5" />
-        <slot>{{ alertModel?.message }}</slot>
+        <!-- Named slot for icon, else fallback -->
+        <slot name="icon">
+            <component :is="currentIcon" v-if="currentIcon" class="size-5 mr-2" />
+        </slot>
+
+        <!-- Named slot for title/header -->
+        <slot name="title"></slot>
+
+        <!-- Named slot for message (fallback to alertModel.message) -->
+        <slot name="message">
+            {{ alertModel?.message }}
+        </slot>
+
+        <!-- Extra actions: e.g. buttons, etc. -->
+        <slot name="actions"></slot>
     </div>
 </template>
