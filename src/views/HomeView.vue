@@ -7,6 +7,7 @@
             <li><router-link to="/about">About Page</router-link></li>
             <li><router-link to="/users-api">Axios API Demo</router-link></li>
             <li><router-link to="/badge-view">Daisy Badge Tests</router-link></li>
+            <li><router-link to="/alert-view">Daisy Alert Tests</router-link></li>
         </ul>
     </div>
 </template>

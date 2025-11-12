@@ -1,4 +1,26 @@
 
+export const ALERT_OPTIONS = {
+    ALERT: 'alert',
+    OUTLINE: 'alert-outline',
+    DASH: 'alert-dash',
+    SOFT: 'alert-soft',
+    BORDERED: 'alert-bordered', // if this exists in DaisyUI
+    SHADOW: 'shadow-lg', // or appropriate shadow class
+    COMPACT: 'alert-compact', // if this exists
+    TYPE: {
+        INFO: 'alert-info',
+        SUCCESS: 'alert-success',
+        WARNING: 'alert-warning',
+        ERROR: 'alert-error',
+    },
+    DIRECTION: {
+        VERTICAL: 'alert-vertical',
+        HORIZONTAL: 'alert-horizontal',
+    }
+}
+
+
+
 export const BADGE_OPTIONS = {
     BADGE: 'badge',
     SIZE: {
@@ -23,3 +45,4 @@ export const BADGE_OPTIONS = {
     DASH: 'badge-dash',
     GHOST: 'badge-ghost',
 }
+
