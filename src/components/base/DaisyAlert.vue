@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import { ALERT_OPTIONS } from '@/constants'
 import { AlertModel } from '@/components/models/alertModel.js'
+import { InformationCircleIcon, ExclamationCircle, ExclamationTriangle, CheckCircle } from '@heroicons/vue/24/solid'
+
 
 const props = defineProps({
     alertModel: {
@@ -37,6 +39,10 @@ const classes = computed(() => {
 
 <template>
     <div :id="alertModel?.id" :class="classes" role="alert" aria-label="alert">
+        <InformationCircleIcon v-if="info" />
+        <ExclamationCircle v-else-if="error" />
+        <ExclamationTriangle v-else-if="warning" />
+        <CheckCircle v-else-if="success" />
         <slot>{{ alertModel?.message }}</slot>
     </div>
 </template>
