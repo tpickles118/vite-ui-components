@@ -53,6 +53,7 @@ const classes = computed(() => {
 
 // TODO: add events
 // TODO: add button support once button model is done
+// TODO: add animation options
 
 </script>
 
