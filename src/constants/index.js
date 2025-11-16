@@ -8,9 +8,6 @@ export const ALERT_OPTIONS = {
     OUTLINE: 'alert-outline',
     DASH: 'alert-dash',
     SOFT: 'alert-soft',
-    BORDERED: 'alert-bordered',
-    SHADOW: 'shadow-lg',
-    COMPACT: 'alert-compact',
     TYPE: {
         INFO: 'alert-info',
         SUCCESS: 'alert-success',
