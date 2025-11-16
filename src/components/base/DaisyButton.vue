@@ -42,16 +42,16 @@ const handleClick = (event) => {
 }
 
 // Emits focus event with button context
-const handleFocus = event => emit('focus', { buttonModel: props.buttonModel, event })
+const handleFocus = (event) => emit('focus', { buttonModel: props.buttonModel, event })
 
 // Emits blur event with button context
-const handleBlur = event => emit('blur', { buttonModel: props.buttonModel, event })
+const handleBlur = (event) => emit('blur', { buttonModel: props.buttonModel, event })
 
 // Emits mouseenter event with button context
-const handleMouseEnter = event => emit('mouseenter', { buttonModel: props.buttonModel, event })
+const handleMouseEnter = (event) => emit('mouseenter', { buttonModel: props.buttonModel, event })
 
 // Emits mouseleave event with button context
-const handleMouseLeave = event => emit('mouseleave', { buttonModel: props.buttonModel, event })
+const handleMouseLeave = (event) => emit('mouseleave', { buttonModel: props.buttonModel, event })
 </script>
 
 <template>
@@ -66,22 +66,26 @@ const handleMouseLeave = event => emit('mouseleave', { buttonModel: props.button
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
     >
-        <!-- Icon Start -->
-        <span v-if="buttonModel.icon && buttonModel.iconPosition == 'START'" class="mr-2">
-            <component :is="buttonModel.icon" class="size-5" />
-        </span>
-
-        {{ buttonModel.label }}
-        
-        <!-- Icon End -->
-        <span v-if="buttonModel.icon && buttonModel.iconPosition == 'END'" class="ml-2">
-            <component :is="buttonModel.icon" class="size-5" />
-        </span>
-        
-        <!-- Loading Spinner -->
+        <!-- Icon-only (no label) -->
+        <template v-if="!buttonModel.label && buttonModel.icon">
+            <component :is="buttonModel.icon" class="size-5 m-auto" />
+        </template>
+        <!-- Icon + label (icon left) -->
+        <template v-else-if="buttonModel.icon && buttonModel.iconPosition == 'START'">
+            <span class="mr-2"><component :is="buttonModel.icon" class="size-5" /></span>
+            <span>{{ buttonModel.label }}</span>
+        </template>
+        <!-- Icon + label (icon right) -->
+        <template v-else-if="buttonModel.icon && buttonModel.iconPosition == 'END'">
+            <span>{{ buttonModel.label }}</span>
+            <span class="ml-2"><component :is="buttonModel.icon" class="size-5" /></span>
+        </template>
+        <!-- Label only -->
+        <template v-else>
+            <span>{{ buttonModel.label }}</span>
+        </template>
+        <!-- Loading Spinner, etc -->
         <span v-if="buttonModel.isLoading" class="ml-2 loading loading-spinner loading-xs"></span>
-        
         <slot />
-
     </button>
 </template>
