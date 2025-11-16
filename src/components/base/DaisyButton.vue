@@ -1,3 +1,7 @@
+<!--
+  DaisyButton.vue
+  Reusable button component with DaisyUI styling, icons, loading states, and event handling.
+-->
 <script setup>
 import { computed } from 'vue'
 import { BUTTON_OPTIONS } from '@/constants'
@@ -12,6 +16,7 @@ const props = defineProps({
 
 const emit = defineEmits(['click', 'focus', 'blur', 'mouseenter', 'mouseleave'])
 
+// Builds CSS classes based on button model properties
 const classes = computed(() => {
     const bm = props.buttonModel || {}
     const cls = [BUTTON_OPTIONS.BUTTON]
@@ -25,7 +30,7 @@ const classes = computed(() => {
     return cls
 })
 
-// Click handler
+// Emits click event with button context if not disabled or loading
 const handleClick = (event) => {
     if (props.buttonModel?.isDisabled || props.buttonModel?.isLoading) return
     emit('click', {
@@ -36,9 +41,16 @@ const handleClick = (event) => {
     })
 }
 
+// Emits focus event with button context
 const handleFocus = event => emit('focus', { buttonModel: props.buttonModel, event })
+
+// Emits blur event with button context
 const handleBlur = event => emit('blur', { buttonModel: props.buttonModel, event })
+
+// Emits mouseenter event with button context
 const handleMouseEnter = event => emit('mouseenter', { buttonModel: props.buttonModel, event })
+
+// Emits mouseleave event with button context
 const handleMouseLeave = event => emit('mouseleave', { buttonModel: props.buttonModel, event })
 </script>
 
@@ -47,24 +59,29 @@ const handleMouseLeave = event => emit('mouseleave', { buttonModel: props.button
         :id="buttonModel?.id"
         :class="classes"
         :disabled="buttonModel.isDisabled || buttonModel.isLoading"
+        role="button"
         @click="handleClick"
         @focus="handleFocus"
         @blur="handleBlur"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
-        role="button"
     >
         <!-- Icon Start -->
         <span v-if="buttonModel.icon && buttonModel.iconPosition == 'START'" class="mr-2">
             <component :is="buttonModel.icon" class="size-5" />
         </span>
+
         {{ buttonModel.label }}
+        
         <!-- Icon End -->
         <span v-if="buttonModel.icon && buttonModel.iconPosition == 'END'" class="ml-2">
             <component :is="buttonModel.icon" class="size-5" />
         </span>
+        
         <!-- Loading Spinner -->
         <span v-if="buttonModel.isLoading" class="ml-2 loading loading-spinner loading-xs"></span>
+        
         <slot />
+
     </button>
 </template>

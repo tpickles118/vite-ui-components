@@ -1,5 +1,13 @@
+/**
+ * buttonModel.js
+ * Button model class for managing button component configuration and state.
+ */
+
 import { v4 as uuidv4 } from 'uuid'
 
+/**
+ * Button model with configurable styling, states, and icon support.
+ */
 export class ButtonModel {
     constructor({
         id = uuidv4(),
@@ -32,6 +40,7 @@ export class ButtonModel {
         this.iconPosition = iconPosition
     }
 
+    // Serializes model to plain object
     toJson() {
         return {
             id: this.id,
@@ -48,6 +57,7 @@ export class ButtonModel {
         }
     }
 
+    // Creates model instance from plain object
     static fromJson(json) {
         return new ButtonModel({
             id: json.id,
@@ -64,6 +74,7 @@ export class ButtonModel {
         })
     }   
 
+    // Compares this model with another by ID or properties
     equals(other) {
         if (!other) return false
         if (other.id) return this.id === other.id
