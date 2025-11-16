@@ -30,40 +30,7 @@ export class ToastModel {
         this.duration = duration
 
     }
-    // Getters
-    getId() {
-        return this.id
-    }
-    getAlerts() {
-        return this.alerts
-    }
-    getIsVisible() {
-        return this.isVisible
-    }
-    getHorizontalPosition() {
-        return this.horizontalPosition
-    }
-    getVerticalPosition() {
-        return this.verticalPosition
-    }
 
-    // Setters (chainable)
-    setAlerts(alerts) {
-        this.alerts = alerts
-        return this
-    }
-    setIsVisible(val) {
-        this.isVisible = !!val
-        return this
-    }
-    setHorizontalPosition(val) {
-        this.horizontalPosition = val
-        return this
-    }
-    setVerticalPosition(val) {
-        this.verticalPosition = val
-        return this
-    }
 
     // Adds an alert to the alerts array
     addAlert(alert) {

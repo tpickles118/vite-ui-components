@@ -36,64 +36,6 @@ export class AlertModel {
         this.message = message
     }
 
-    getId() {
-        return this.id
-    }
-
-    getType() {
-        return this.type
-    }
-
-    getIsSoft() {
-        return this.isSoft
-    }
-
-    getIsOutline() {
-        return this.isOutline
-    }
-
-    getIsDash() {
-        return this.isDash
-    }
-
-    getDirection() {
-        return this.direction
-    }
-
-    getMessage() {
-        return this.message
-    }
-
-    setType(value) {
-        this.type = value
-        return this
-    }
-
-    setIsSoft(value) {
-        this.isSoft = !!value
-        return this
-    }
-
-    setIsOutline(value) {
-        this.isOutline = !!value
-        return this
-    }
-
-    setIsDash(value) {
-        this.isDash = !!value
-        return this
-    }
-
-    setDirection(value) {
-        this.direction = value
-        return this
-    }
-
-    setMessage(value) {
-        this.message = value
-        return this
-    }
-
     // Serializes model to plain object
     toJson() {
         return {
