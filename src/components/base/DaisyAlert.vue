@@ -13,7 +13,6 @@ import {
     CheckCircleIcon,
     XMarkIcon,
 } from '@heroicons/vue/24/outline'
-import alert from 'daisyui/components/alert'
 
 const props = defineProps({
     alertModel: {

@@ -44,3 +44,19 @@ export const BADGE_OPTIONS = {
     DASH: 'badge-dash',
     GHOST: 'badge-ghost',
 }
+
+export const TOAST_OPTIONS = {
+    TOAST: 'toast',
+    PLACEMENT: {
+        HORIZONTAL: {
+            START: 'toast-start',
+            CENTER: 'toast-center',
+            END: 'toast-end',
+        },
+        VERTICAL: {
+            TOP: 'toast-top',
+            MIDDLE: 'toast-middle',
+            BOTTOM: 'toast-bottom',
+        },
+    },
+}
