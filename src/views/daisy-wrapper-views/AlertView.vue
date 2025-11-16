@@ -44,9 +44,7 @@ const infoAlert2 = ref(
         title: 'New message!',
         message: 'You have 1 unread message',
         isSoft: true,
-        buttons: [
-            new ButtonModel({ key: 'view', label: 'View', color: 'PRIMARY', size: 'SM' })
-        ],
+        buttons: [new ButtonModel({ key: 'view', label: 'View', color: 'PRIMARY', size: 'SM' })],
     })
 )
 
@@ -59,8 +57,14 @@ const warningAlert2 = ref(
         isOutline: true,
         buttons: [
             new ButtonModel({ key: 'save', label: 'Save', color: 'SUCCESS', size: 'SM' }),
-            new ButtonModel({ key: 'discard', label: 'Discard', color: 'GHOST', size: 'SM', variant: 'GHOST' }),
-        ]
+            new ButtonModel({
+                key: 'discard',
+                label: 'Discard',
+                color: 'GHOST',
+                size: 'SM',
+                variant: 'GHOST',
+            }),
+        ],
     })
 )
 
@@ -81,9 +85,7 @@ const errorAlert2 = ref(
         title: 'Connection failed',
         message: 'Unable to connect to server. Please try again.',
         isDash: true,
-        buttons: [
-            new ButtonModel({ key: 'retry', label: 'Retry', color: 'ERROR', size: 'SM' })
-        ],
+        buttons: [new ButtonModel({ key: 'retry', label: 'Retry', color: 'ERROR', size: 'SM' })],
         isDismissible: true,
     })
 )
@@ -227,16 +229,19 @@ const handleCustomSee = () => {
                             message: 'Your subscription expires in 3 days.',
                             isOutline: true,
                             buttons: [
-                                {
+                                new ButtonModel({
                                     key: 'upgrade',
                                     label: 'Upgrade Now',
-                                    class: 'btn btn-sm btn-warning',
-                                },
-                                {
+                                    color: 'WARNING',
+                                    size: 'SM',
+                                }),
+                                new ButtonModel({
                                     key: 'remind',
                                     label: 'Remind Later',
-                                    class: 'btn btn-sm btn-ghost',
-                                },
+                                    color: 'GHOST',
+                                    size: 'SM',
+                                    variant: 'GHOST',
+                                }),
                             ],
                             isDismissible: true,
                         })

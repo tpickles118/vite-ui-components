@@ -6,7 +6,9 @@
 import { computed } from 'vue'
 import { ALERT_OPTIONS } from '@/constants/index.js'
 import { AlertModel } from '@/components/models/alertModel.js'
+import { ButtonModel } from '../models/buttonModel.js'
 import DaisyButton from '@/components/base/DaisyButton.vue'
+
 
 import {
     InformationCircleIcon,
@@ -122,13 +124,20 @@ const handleAction = (actionKey) => {
         </div>
 
         <!-- Dismiss button -->
-         <DaisyButton
+        <DaisyButton
             v-if="alertModel?.isDismissible"
-            :button-model="button"
+            :button-model="
+                new ButtonModel({
+                    label: '',
+                    icon: XMarkIcon,
+                    color: 'GHOST',
+                    size: 'SM',
+                    variant: 'GHOST',
+                    key: 'dismiss',
+                })
+            "
             @click="handleDismiss"
-        >
-            <XMarkIcon class="size-5" />
-        </DaisyButton>
+        />
 
         <slot name="actions" :on-action="handleAction"></slot>
     </div>
