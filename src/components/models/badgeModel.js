@@ -1,4 +1,11 @@
+/**
+ * badgeModel.js
+ * Badge model class for creating and managing badge component state.
+ */
 import { v4 as uuidv4 } from 'uuid'
+/**
+ * Badge model with configurable styling and interaction properties.
+ */
 export class BadgeModel {
     constructor({
         id = uuidv4(),

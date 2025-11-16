@@ -1,8 +1,13 @@
+<!--
+  BadgeView.vue
+  Demo view showcasing DaisyBadge component with various configurations.
+-->
 <script setup>
 import { ref } from 'vue'
 import { BadgeModel } from '@/components/models/badgeModel.js'
 import DaisyBadge from '@/components/base/DaisyBadge.vue'
 
+// Basic badge examples
 const basic = new BadgeModel()
 const primarySoft = new BadgeModel({
     size: 'LG',
@@ -17,6 +22,7 @@ const outlined = new BadgeModel({
     label: 'Outline',
 })
 
+// Interactive badge examples
 const filterBadge = ref(
     new BadgeModel({
         label: 'Filter Badge - hover and click',
@@ -33,16 +39,19 @@ const tagBadge = ref(
     })
 )
 
+// Handles badge click events
 const handleBadgeClick = ({ badgeId, label }) => {
     console.log(`Badge clicked: ${label} (ID: ${badgeId})`)
     // Handle filter toggle, navigation, etc.
 }
 
+// Handles badge dismissal
 const handleBadgeDismiss = ({ badgeId, label }) => {
     console.log(`Badge dismissed: ${label} (ID: ${badgeId})`)
     // Remove badge from list
 }
 
+// Handles badge hover events
 const handleBadgeHover = ({ badgeId }) => {
     console.log(`Badge hovered: ${badgeId}`)
     // Show to

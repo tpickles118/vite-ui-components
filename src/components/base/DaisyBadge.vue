@@ -1,3 +1,7 @@
+<!--
+  DaisyBadge.vue
+  Reusable badge component with DaisyUI styling, click/dismiss handlers, and slot support.
+-->
 <script setup>
 import { computed } from 'vue'
 import { BADGE_OPTIONS } from '@/constants'
@@ -13,18 +17,16 @@ const props = defineProps({
 
 const emit = defineEmits(['click', 'dismiss', 'hover', 'mouseenter', 'mouseleave'])
 
-
+// Builds CSS classes based on badge model properties
 const classes = computed(() => {
     const bm = props.badgeModel || {}
     const cls = [BADGE_OPTIONS.BADGE]
 
-    // Size can be either a key (e.g. 'LG') or a full class string ('badge-lg')
     if (bm.size) {
         const sizeVal = BADGE_OPTIONS.SIZE?.[bm.size] ?? bm.size
         if (sizeVal) cls.push(sizeVal)
     }
 
-    // Color can be either a key (e.g. 'PRIMARY') or a full class string ('badge-primary')
     if (bm.color) {
         const colorVal = BADGE_OPTIONS.COLOR?.[bm.color] ?? bm.color
         if (colorVal) cls.push(colorVal)
@@ -43,6 +45,7 @@ const classes = computed(() => {
     return cls
 })
 
+// Emits click event with badge context
 const handleClick = (event) => {
     if (props.badgeModel?.isClickable) {
         emit('click', {
@@ -54,7 +57,7 @@ const handleClick = (event) => {
     }
 }
 
-
+// Emits dismiss event and prevents click propagation
 const handleDismiss = (event) => {
     event.stopPropagation() // Prevent click event from firing
     emit('dismiss', {
@@ -64,6 +67,7 @@ const handleDismiss = (event) => {
     })
 }
 
+// Emits mouseenter event with badge context
 const handleMouseEnter = (event) => {
     emit('mouseenter', {
         badgeId: props.badgeModel?.id,
@@ -72,6 +76,7 @@ const handleMouseEnter = (event) => {
     })
 }
 
+// Emits mouseleave event with badge context
 const handleMouseLeave = (event) => {
     emit('mouseleave', {
         badgeId: props.badgeModel?.id,
