@@ -1,228 +1,246 @@
-# Vue 3 + Vite Baseline Template
 
-A production-ready Vue 3 baseline project template with modern tooling and best practices pre-configured.
+***
+
+# vite-ui-components
+
+A Vue 3 + Vite-based, production-ready component library template. Modern tooling, best practices, and common UI methodology are pre-configured for an efficient workflow.
 
 ## 🚀 Features
 
-- ⚡️ **Vue 3** - Progressive JavaScript framework
-- 🛠️ **Vite** - Next generation frontend tooling
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 🌼 **DaisyUI** - Tailwind CSS component library
-- 🧭 **Vue Router** - Official router for Vue.js
-- 🌐 **Axios** - Promise-based HTTP client with interceptors
-- ✅ **ESLint** - Code linting with Vue 3 support
-- 💅 **Prettier** - Code formatting
-- 📁 **Path Alias** - `@` alias configured for clean imports
-- 🔧 **Environment Variables** - Vite env configuration for different environments
+- **Vue 3** – Progressive JavaScript framework
+- **Vite** – Lightning-fast frontend tooling
+- **Tailwind CSS** – Utility-first CSS framework
+- **DaisyUI** – Beautiful UI components for Tailwind
+- **Vue Router** – Official Vue routing solution
+- **Axios** – Promise-based HTTP client with interceptors
+- **ESLint/Prettier** – Code linting and formatting
+- **Path Aliases** – Clean import paths (`@`)
+- **Environment Variables** – Vite ENV setup for all environments
+
 
 ## 📋 Prerequisites
 
-- Node.js (version 18 or higher recommended)
-- npm or yarn
+- **Node.js v18+**
+- **npm** or **yarn**
+
 
 ## 🛠️ Installation
 
-1. **Use this template** by clicking the "Use this template" button on GitHub, or clone the repository:
+Clone the repository and install dependencies:
 
-```
-
-git clone https://github.com/tpickles118/vite-baseline-daisyui.git 
-
-cd vite-baseline-daisyui
-
-```
-
-2. **Install dependencies:**
-
-```
-
+```bash
+git clone https://github.com/tpickles118/vite-ui-components.git
+cd vite-ui-components
 npm install
-
 ```
 
-3. **Update project details:**
-   - Edit `package.json` (name, description, author, repository)
-   - Update this `README.md` with your project information
-   - Update `.env` files with your environment variables
 
 ## 🚀 Development
 
-Start the development server:
+Run the development server:
 
-```
-
+```bash
 npm run dev
-
+# App runs at http://localhost:5173
 ```
 
-The app will be available at `http://localhost:5173`
 
 ## 🏗️ Build
 
 Build for production:
 
-```
-
+```bash
 npm run build
-
 ```
 
 Preview the production build:
 
-```
-
+```bash
 npm run preview
-
 ```
+
 
 ## 🧹 Code Quality
 
-Run ESLint:
+Lint your code:
 
-```
-
+```bash
 npm run lint
-
 ```
 
-Format code with Prettier:
+Format your code:
 
-```
-
+```bash
 npm run format
-
 ```
+
 
 ## 📁 Project Structure
 
 ```
-
-├── public/              \# Static assets
+├── public/                # Static assets
 ├── src/
-│   ├── api/            \# API configuration and services
-│   │   ├── axios.js    \# Axios instance with interceptors
-│   │   └── services.js \# API service methods
-│   ├── assets/         \# Project assets (images, styles, etc.)
-│   ├── components/     \# Reusable Vue components
-│   ├── router/         \# Vue Router configuration
-│   │   └── index.js    \# Router setup
-│   ├── views/          \# Page components
-│   ├── App.vue         \# Root component
-│   ├── main.js         \# Application entry point
-│   └── style.css       \# Global styles (Tailwind imports)
-├── .env                \# Default environment variables
-├── .env.development    \# Development environment variables
-├── .env.production     \# Production environment variables
-├── .eslintrc.cjs       \# ESLint configuration
-├── .prettierrc         \# Prettier configuration
-├── eslint.config.js    \# ESLint flat config (ESLint 9+)
-├── index.html          \# HTML entry point
-├── jsconfig.json       \# JavaScript configuration (path alias)
-├── package.json        \# Project dependencies and scripts
-├── postcss.config.js   \# PostCSS configuration
-├── tailwind.config.js  \# Tailwind CSS configuration
-└── vite.config.js      \# Vite configuration
-
+│   ├── api/               # API config/services (axios setup)
+│   ├── assets/            # Images, styles, etc.
+│   ├── components/        # Reusable Vue components
+│   │   └── base/          # Low-level, foundational UI components
+│   ├── router/            # Vue Router config
+│   ├── views/             # Page components
+│   ├── App.vue            # Root Vue component
+│   ├── main.js            # Main entry point
+│   └── style.css          # Global styles (with Tailwind)
+├── .env                   # Default env variables
+├── .env.development
+├── .env.production
+├── .eslintrc.cjs          # ESLint config
+├── .prettierrc            # Prettier config
+├── eslint.config.js
+├── index.html             # Main HTML entry
+├── jsconfig.json          # Path alias config
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── vite.config.js
 ```
+
 
 ## 🔧 Configuration
 
 ### Environment Variables
 
-Environment variables must be prefixed with `VITE_` to be accessible in your app:
+Prefix your variables with `VITE_` in `.env` files:
 
-```
-
+```env
 VITE_API_URL=https://api.example.com
-VITE_APP_NAME=My App
-
 ```
 
-Access them in your code:
+Usage in code:
 
-```
-
+```js
 const apiUrl = import.meta.env.VITE_API_URL
-
 ```
+
 
 ### Path Alias
 
-Use the `@` alias for clean imports:
+Use `@` for clean imports:
 
+```js
+import Button from '@/components/Button.vue'
 ```
 
-import Component from '@/components/Component.vue'
-import { userService } from '@/api/services'
 
-```
+### Axios
 
-### Axios Configuration
+Axios instance is in `src/api/axios.js` with:
 
-API client is pre-configured with:
-- Base URL from environment variables
+- Base URL from env
 - Request/response interceptors
-- Authentication token handling
+- Auth token handling
 - Global error handling
 
-Located in `src/api/axios.js`
 
 ## 🎨 Styling
 
-### Tailwind CSS
+**Tailwind CSS** and **DaisyUI** are available globally.
+Example:
 
-Utility classes are available throughout your components:
-
-```
-
-<div class="container mx-auto p-4">
-  <h1 class="text-4xl font-bold">Hello World</h1>
-</div>
-```
-
-### DaisyUI Components
-
-Pre-built components from DaisyUI:
-
-<button class="btn btn-primary">Click Me</button>
-```
-
+```html
 <div class="card bg-base-100 shadow-xl">
   <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>Card content</p>
+    <h2 class="card-title">My Card</h2>
+    <p>Card content here</p>
   </div>
 </div>
 ```
 
-## 📝 Demo Views
 
-The template includes demo views to showcase the setup:
+***
 
-- **Home** - Landing page with hero section
-- **About** - Simple static route example
-- **Users** - Dynamic routes demonstration
-- **User Profile** - Route parameters example
-- **Dashboard** - Nested routes example
-- **Users API** - Axios integration demo
+## 🧩 Base UI Components
 
-**Note:** You can remove these demo views and routes when starting your project.
+The following base UI components are available in `src/components/base`:
 
-#
+
+| Component | File Path | Description |
+| :-- | :-- | :-- |
+| DaisyAlert | `src/components/base/DaisyAlert.vue` | Alert banner for warnings, success, info, error, or custom messages |
+| DaisyBadge | `src/components/base/DaisyBadge.vue` | Versatile badge label for notifications or statuses |
+
+### How to Use
+
+Import these base components into your Vue files:
+
+```vue
+<script setup>
+import DaisyAlert from '@/components/base/DaisyAlert.vue'
+import DaisyBadge from '@/components/base/DaisyBadge.vue'
+</script>
+```
+
+
+#### DaisyAlert Example
+
+```vue
+<DaisyAlert type="success" message="Operation was successful!"/>
+<DaisyAlert type="error" message="Something went wrong."/>
+```
+
+**Props:**
+
+- `type` – `'success' | 'info' | 'warning' | 'error' | 'custom'`
+- `message` – String (alert message to display)
+
+
+#### DaisyBadge Example
+
+```vue
+<DaisyBadge text="New" type="info"/>
+```
+
+**Props:**
+
+- `text` – String (label to display in the badge)
+- `type` – `'success' | 'info' | 'warning' | 'error' | etc.` (choose your color/purpose)
+
+**Tip:**
+Check each `*.vue` file for more available props and customization options.
+
+***
+
+## 📝 Demo Pages
+
+Demo views are provided to showcase the setup and usage of your core and base components, including wrappers for DaisyUI:
+
+- **Home:** Main landing page for your project (`/src/views/HomeView.vue`)
+
+- **About:** Example of a static route (`/src/views/AboutView.vue`)
+
+- **Users:** Demonstrates dynamic routing and API calls (`/src/views/UsersApi.vue`)
+
+- **Daisy Wrapper Views:** Specialized demo pages for DaisyUI components, located in `/src/views/daisy-wrapper-views`
+
+  - **AlertView.vue:** Demo and documentation for DaisyAlert usage and variants
+
+  - **BadgeView.vue:** Demo and documentation for DaisyBadge usage and variants
 
 ## 🙏 Acknowledgments
 
-- [Vue.js](https://vuejs.org/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [DaisyUI](https://daisyui.com/)
-- [Vue Router](https://router.vuejs.org/)
-- [Axios](https://axios-http.com/)
+- Vue.js
+- Vite
+- Tailwind CSS
+- DaisyUI
+- Vue Router
+- Axios
+
 
 ## 📧 Support
 
-For issues and questions, please use the [GitHub Issues](https://github.com/yourusername/vite-baseline-daisyui/issues) page.
+For issues and questions, use the [GitHub Issues page](https://github.com/tpickles118/vite-ui-components/issues).
 
-
+***
 
 **Happy Coding! 🎉**
+
+***
+
