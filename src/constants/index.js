@@ -1,12 +1,16 @@
+/**
+ * constants/index.js
+ * DaisyUI component styling constants for alerts and badges.
+ */
 
 export const ALERT_OPTIONS = {
     ALERT: 'alert',
     OUTLINE: 'alert-outline',
     DASH: 'alert-dash',
     SOFT: 'alert-soft',
-    BORDERED: 'alert-bordered', // if this exists in DaisyUI
-    SHADOW: 'shadow-lg', // or appropriate shadow class
-    COMPACT: 'alert-compact', // if this exists
+    BORDERED: 'alert-bordered',
+    SHADOW: 'shadow-lg',
+    COMPACT: 'alert-compact',
     TYPE: {
         INFO: 'alert-info',
         SUCCESS: 'alert-success',
@@ -16,10 +20,8 @@ export const ALERT_OPTIONS = {
     DIRECTION: {
         VERTICAL: 'alert-vertical',
         HORIZONTAL: 'alert-horizontal',
-    }
+    },
 }
-
-
 
 export const BADGE_OPTIONS = {
     BADGE: 'badge',
@@ -45,4 +47,3 @@ export const BADGE_OPTIONS = {
     DASH: 'badge-dash',
     GHOST: 'badge-ghost',
 }
-

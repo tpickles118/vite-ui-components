@@ -1,3 +1,7 @@
+<!--
+  DaisyAlert.vue
+  Reusable alert component with DaisyUI styling and flexible slot support.
+-->
 <script setup>
 import { computed } from 'vue'
 import { ALERT_OPTIONS } from '@/constants'
@@ -18,9 +22,9 @@ const props = defineProps({
     },
 })
 
-// define emits
 const emit = defineEmits(['button-click', 'dismiss', 'action'])
 
+// Icon mapping for alert types
 const iconMap = {
     INFO: InformationCircleIcon,
     SUCCESS: CheckCircleIcon,
@@ -28,32 +32,28 @@ const iconMap = {
     ERROR: ExclamationCircleIcon,
 }
 
-// Use slot > custom > fallback icon
+// Resolves icon: custom icon from model takes precedence over type-based icon
 const currentIcon = computed(() => {
-    // Prefer customIcon provided in model if present
     if (props.alertModel?.customIcon) {
         return props.alertModel.customIcon
     }
-    // Otherwise use mapped icon
     return iconMap[props.alertModel?.type] || null
 })
 
+// Builds CSS classes based on alert model properties
 const classes = computed(() => {
     const am = props.alertModel || {}
     const cls = [ALERT_OPTIONS.ALERT]
 
-    // Type mapping
     if (am.type) {
         const typeVal = ALERT_OPTIONS.TYPE?.[am.type] ?? am.type
         if (typeVal) cls.push(typeVal)
     }
 
-    // Style modifiers
     if (am.isOutline) cls.push(ALERT_OPTIONS.OUTLINE)
     if (am.isDash) cls.push(ALERT_OPTIONS.DASH)
     if (am.isSoft) cls.push(ALERT_OPTIONS.SOFT)
 
-    // Direction
     if (am.direction) {
         const dirVal = ALERT_OPTIONS.DIRECTION?.[am.direction] ?? am.direction
         if (dirVal) cls.push(dirVal)
@@ -62,7 +62,7 @@ const classes = computed(() => {
     return cls
 })
 
-// Handle button click events
+// Emits button click with alert context
 const handleButtonClick = (buttonKey) => {
     emit('button-click', {
         alertId: props.alertModel?.id,
@@ -71,7 +71,7 @@ const handleButtonClick = (buttonKey) => {
     })
 }
 
-// handle dismiss event
+// Emits dismiss event with alert ID
 const handleDismiss = () => {
     emit('dismiss', {
         alertId: props.alertModel?.id,
@@ -79,7 +79,7 @@ const handleDismiss = () => {
     })
 }
 
-// handle action event
+// Emits custom action event
 const handleAction = (actionKey) => {
     emit('action', {
         alertId: props.alertModel?.id,
@@ -91,25 +91,26 @@ const handleAction = (actionKey) => {
 
 <template>
     <div :id="alertModel?.id" :class="classes" role="alert" aria-label="alert">
-        <!-- Named slot for icon, else fallback -->
+        <!-- Icon slot with fallback to type-based icon -->
         <slot name="icon">
             <component :is="currentIcon" v-if="currentIcon" class="size-5 mr-2" />
         </slot>
 
-        <!-- Named slot for title/header -->
+        <!-- Title slot -->
         <slot name="title">
             <h3 v-if="alertModel?.title" class="font-bold">
                 {{ alertModel?.title }}
             </h3>
         </slot>
 
-        <!-- Named slot for message (fallback to alertModel.message) -->
+        <!-- Message slot with responsive text sizing -->
         <slot name="message">
             <div v-if="alertModel?.message" :class="alertModel?.title ? 'txt-xs' : ''">
                 {{ alertModel?.message }}
             </div>
         </slot>
 
+        <!-- Render action buttons from model -->
         <div v-if="alertModel?.buttons && alertModel.buttons.length > 0" class="flex gap-2">
             <button
                 v-for="button in alertModel.buttons"
@@ -122,11 +123,16 @@ const handleAction = (actionKey) => {
             </button>
         </div>
 
-        <button v-if="alertModel?.isDismissible" class="btn btn-sm btn-ghost ml-auto" @click="handleDismiss">
+        <!-- Dismiss button -->
+        <button
+            v-if="alertModel?.isDismissible"
+            class="btn btn-sm btn-ghost ml-auto"
+            @click="handleDismiss"
+        >
             <XMarkIcon class="size-5" />
         </button>
 
-        <!-- Extra actions: e.g. buttons, etc. -->
+        <!-- Custom actions slot -->
         <slot name="actions" :on-action="handleAction"></slot>
     </div>
 </template>

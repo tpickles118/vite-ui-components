@@ -1,9 +1,14 @@
+<!--
+  AlertView.vue
+  Demo view showcasing DaisyAlert component with various configurations.
+-->
 <script setup>
 import { ref } from 'vue'
 import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js'
 import DaisyAlert from '@/components/base/DaisyAlert.vue'
 import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
+// Basic alert examples
 const successAlert = new AlertModel({
     type: 'SUCCESS',
     message: 'This is a success alert with AlertModel!',
@@ -30,7 +35,7 @@ const customAlert = new CustomAlertModel({
     customIcon: RocketLaunchIcon,
 })
 
-// Alert with action button
+// Interactive alert examples
 const infoAlert2 = ref(
     new AlertModel({
         id: 'info-alert-1',
@@ -42,7 +47,6 @@ const infoAlert2 = ref(
     })
 )
 
-// Alert with multiple buttons
 const warningAlert2 = ref(
     new AlertModel({
         id: 'warning-alert-1',
@@ -57,7 +61,6 @@ const warningAlert2 = ref(
     })
 )
 
-// Dismissible alert
 const successAlert2 = ref(
     new AlertModel({
         id: 'success-alert-1',
@@ -68,7 +71,6 @@ const successAlert2 = ref(
     })
 )
 
-// Error alert with retry button
 const errorAlert2 = ref(
     new AlertModel({
         id: 'error-alert-1',
@@ -81,7 +83,6 @@ const errorAlert2 = ref(
     })
 )
 
-// Alert with custom action slot
 const customAlert2 = ref(
     new AlertModel({
         id: 'custom-alert-1',
@@ -91,39 +92,37 @@ const customAlert2 = ref(
     })
 )
 
-// Event handlers
+// Handles button click events from alerts
 const handleButtonClick = ({ alertId, buttonKey, alertModel }) => {
     console.log(`Button clicked: ${buttonKey} on alert: ${alertId}`)
 
     switch (buttonKey) {
         case 'view':
-            // Navigate to messages
             console.log('Navigating to messages...')
             break
         case 'save':
-            // Save changes
             console.log('Saving changes...')
             break
         case 'discard':
-            // Discard changes
             console.log('Discarding changes...')
             break
         case 'retry':
-            // Retry connection
             console.log('Retrying connection...')
             break
     }
 }
 
+// Handles alert dismissal
 const handleDismiss = ({ alertId }) => {
     console.log(`Alert dismissed: ${alertId}`)
-    // Hide or remove the alert
 }
 
+// Handles custom action events
 const handleAction = ({ alertId, actionName }) => {
     console.log(`Custom action: ${actionName} on alert: ${alertId}`)
 }
 
+// Custom button handler for slot example
 const handleCustomSee = () => {
     console.log('Custom see button clicked')
 }
@@ -135,29 +134,30 @@ const handleCustomSee = () => {
 
         <div class="space-y-4">
             <section>
-                <h3 class="text-lg font-semibold  mb-2">Alert as basic Success with AlertModel</h3>
-
+                <h3 class="text-lg font-semibold mb-2">Alert as basic Success with AlertModel</h3>
                 <DaisyAlert :alert-model="successAlert" />
             </section>
+
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Error with AlertModel</h3>
-
                 <DaisyAlert :alert-model="errorAlert" />
             </section>
+
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Info with AlertModel</h3>
                 <DaisyAlert :alert-model="infoAlert" />
             </section>
+
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Warning with AlertModel</h3>
                 <DaisyAlert :alert-model="warningAlert" />
             </section>
+
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert with WarningAlertModel</h3>
                 <DaisyAlert :alert-model="Warning" />
             </section>
 
-            <!-- slot example -->
             <section>
                 <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with AlertModel, Message Overridden
@@ -166,6 +166,7 @@ const handleCustomSee = () => {
                     >Overridden slot message for success alert</DaisyAlert
                 >
             </section>
+
             <section>
                 <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with CustomAlertModel, inject different icon
