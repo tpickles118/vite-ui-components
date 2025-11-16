@@ -1,8 +1,19 @@
 <script setup>
 import { HomeIcon, IdentificationIcon } from '@heroicons/vue/24/outline'
+import DaisyBadge from '@/components/base/DaisyBadge.vue'
+import { BadgeModel } from '@/components/models/badgeModel.js'
+
 
 const appName = import.meta.env.VITE_APP_NAME
 const debugMode = import.meta.env.VITE_DEBUG_MODE === 'true'
+
+const debugBadgeModel = new BadgeModel({
+    size: 'MD',
+    color: 'PRIMARY',
+    isSoft: true,
+    isOutline: true,
+    label: '** DEBUG MODE **',
+})
 
 </script>
 
@@ -22,7 +33,7 @@ const debugMode = import.meta.env.VITE_DEBUG_MODE === 'true'
 
         <router-view />
         <div v-if="debugMode" class="ml-4 text-center">
-            <span class="badge badge-info">Debug Mode</span>
+            <DaisyBadge :badge-model="debugBadgeModel" />
         </div>
     </div>
 </template>
