@@ -135,31 +135,31 @@ const handleCustomSee = () => {
 
         <div class="space-y-4">
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert as basic Success with AlertModel</h3>
+                <h3 class="text-lg font-semibold  mb-2">Alert as basic Success with AlertModel</h3>
 
                 <DaisyAlert :alert-model="successAlert" />
             </section>
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert as basic Error with AlertModel</h3>
+                <h3 class="text-lg font-semibold mb-2">Alert as basic Error with AlertModel</h3>
 
                 <DaisyAlert :alert-model="errorAlert" />
             </section>
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert as basic Info with AlertModel</h3>
+                <h3 class="text-lg font-semibold mb-2">Alert as basic Info with AlertModel</h3>
                 <DaisyAlert :alert-model="infoAlert" />
             </section>
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert as basic Warning with AlertModel</h3>
+                <h3 class="text-lg font-semibold mb-2">Alert as basic Warning with AlertModel</h3>
                 <DaisyAlert :alert-model="warningAlert" />
             </section>
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert with WarningAlertModel</h3>
+                <h3 class="text-lg font-semibold mb-2">Alert with WarningAlertModel</h3>
                 <DaisyAlert :alert-model="Warning" />
             </section>
 
             <!-- slot example -->
             <section>
-                <h3 class="text-2xl font-bold mb-2">
+                <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with AlertModel, Message Overridden
                 </h3>
                 <DaisyAlert :alert-model="successAlert"
@@ -167,7 +167,7 @@ const handleCustomSee = () => {
                 >
             </section>
             <section>
-                <h3 class="text-2xl font-bold mb-2">
+                <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with CustomAlertModel, inject different icon
                 </h3>
                 <DaisyAlert :alert-model="customAlert" class="alert-success">
@@ -178,7 +178,7 @@ const handleCustomSee = () => {
             </section>
 
             <section>
-                <h3 class="text-2xl font-bold mb-2">Alert with Action Button</h3>
+                <h3 class="text-lg font-semibold mb-2">Alert with Action Button</h3>
                 <DaisyAlert :alert-model="infoAlert2" @button-click="handleButtonClick" />
             </section>
 
