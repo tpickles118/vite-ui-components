@@ -8,6 +8,8 @@ export class AlertModel {
         isOutline = false,
         isDash = false,
         direction = null,
+        buttons = [],
+        isDismissible = false,
         message = 'This is an alert message.',
     } = {}) {
         Object.defineProperty(this, 'id', {
@@ -21,6 +23,8 @@ export class AlertModel {
         this.isOutline = isOutline
         this.isDash = isDash
         this.direction = direction
+        this.buttons = buttons      // array of { key, label, class, disabled }
+        this.isDismissible = isDismissible  
         this.message = message
     }
 

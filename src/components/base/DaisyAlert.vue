@@ -7,7 +7,9 @@ import {
     ExclamationCircleIcon,
     ExclamationTriangleIcon,
     CheckCircleIcon,
+    XMarkIcon,
 } from '@heroicons/vue/24/outline'
+import alert from 'daisyui/components/alert'
 
 const props = defineProps({
     alertModel: {
@@ -15,6 +17,9 @@ const props = defineProps({
         required: true,
     },
 })
+
+// define emits
+const emit = defineEmits(['button-click', 'dismiss', 'action'])
 
 const iconMap = {
     INFO: InformationCircleIcon,
@@ -57,10 +62,31 @@ const classes = computed(() => {
     return cls
 })
 
-// TODO: add events
-// TODO: add button support once button model is done
-// TODO: add animation options
+// Handle button click events
+const handleButtonClick = (buttonKey) => {
+    emit('button-click', {
+        alertId: props.alertModel?.id,
+        buttonKey,
+        alertModel: props.alertModel,
+    })
+}
 
+// handle dismiss event
+const handleDismiss = () => {
+    emit('dismiss', {
+        alertId: props.alertModel?.id,
+        alertModel: props.alertModel,
+    })
+}
+
+// handle action event
+const handleAction = (actionKey) => {
+    emit('action', {
+        alertId: props.alertModel?.id,
+        actionKey,
+        alertModel: props.alertModel,
+    })
+}
 </script>
 
 <template>
@@ -71,14 +97,36 @@ const classes = computed(() => {
         </slot>
 
         <!-- Named slot for title/header -->
-        <slot name="title"></slot>
+        <slot name="title">
+            <h3 v-if="alertModel?.title" class="font-bold">
+                {{ alertModel?.title }}
+            </h3>
+        </slot>
 
         <!-- Named slot for message (fallback to alertModel.message) -->
         <slot name="message">
-            {{ alertModel?.message }}
+            <div v-if="alertModel?.message" :class="alertModel?.title ? 'txt-xs' : ''">
+                {{ alertModel?.message }}
+            </div>
         </slot>
 
+        <div v-if="alertModel?.buttons && alertModel.buttons.length > 0" class="flex gap-2">
+            <button
+                v-for="button in alertModel.buttons"
+                :key="button.key || button.label"
+                :class="button.class || 'btn btn-sm'"
+                :disabled="button.disabled"
+                @click="handleButtonClick(button.key || button.label)"
+            >
+                {{ button.label || 'Button' }}
+            </button>
+        </div>
+
+        <button v-if="alertModel?.isDismissible" class="btn btn-sm btn-ghost ml-auto" @click="handleDismiss">
+            <XMarkIcon class="size-5" />
+        </button>
+
         <!-- Extra actions: e.g. buttons, etc. -->
-        <slot name="actions"></slot>
+        <slot name="actions" :on-action="handleAction"></slot>
     </div>
 </template>
