@@ -9,6 +9,8 @@
             <li><router-link to="/badge-view" class="link link-hover">Daisy Badge Tests</router-link></li>
             <li><router-link to="/alert-view" class="link link-hover">Daisy Alert Tests</router-link></li>
             <li><router-link to="/toast-view" class="link link-hover">Daisy Toast Tests</router-link></li>
+            <li><router-link to="/button-view" class="link link-hover">Daisy Button Tests</router-link></li>
+            
         </ul>
     </div>
 </template>
