@@ -11,6 +11,7 @@ export class ToastModel {
         verticalPosition = 'BOTTOM',
         alerts = [],
         isVisible = true,
+        duration = null,    // display time in ms
     } = {}) {
         Object.defineProperty(this, 'id', {
             value: id,
@@ -22,6 +23,8 @@ export class ToastModel {
         this.verticalPosition = verticalPosition
         this.alerts = alerts
         this.isVisible = isVisible
+        this.duration = duration
+
     }
     // Getters
     getId() {
