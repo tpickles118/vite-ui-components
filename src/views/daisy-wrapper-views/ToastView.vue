@@ -1,11 +1,14 @@
-<!-- views/daisy-wrapper-views/ToastView.vue -->
+<!--
+  ToastView.vue
+  Demo view showcasing DaisyToast component with different notification types.
+-->
 <script setup>
 import { ref } from 'vue'
 import { ToastModel } from '@/components/models/toastModel.js'
 import { AlertModel } from '@/components/models/alertModel.js'
 import DaisyToast from '@/components/base/DaisyToast.vue'
 
-// Helper: Create an AlertModel from simple args
+// Creates an alert model from simplified parameters
 function makeAlert({ type, message = '', title = '', ...rest }) {
     return new AlertModel({
         type,
@@ -15,7 +18,7 @@ function makeAlert({ type, message = '', title = '', ...rest }) {
     })
 }
 
-// ToastModel: parent (or store) manages isVisible and alert content
+// Toast model with positioning and auto-hide configuration
 const toastModel = ref(
     new ToastModel({
         horizontalPosition: 'END',
@@ -26,11 +29,13 @@ const toastModel = ref(
     })
 )
 
-// Show a toast with user input type/messages
+// Displays toast with specified type and message
 function showToast(type, message = '', title = '') {
     toastModel.value.alerts = [makeAlert({ type, message, title })]
     toastModel.value.isVisible = true
 }
+
+// Hides the currently displayed toast
 function hideToast() {
     toastModel.value.isVisible = false
 }

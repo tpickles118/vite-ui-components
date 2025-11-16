@@ -1,3 +1,7 @@
+<!--
+  DaisyToast.vue
+  Toast notification wrapper that displays positioned alerts with auto-hide functionality.
+-->
 <script setup>
 import { computed, watch, onBeforeUnmount } from 'vue'
 import { TOAST_OPTIONS } from '@/constants/index.js'
@@ -13,7 +17,7 @@ const props = defineProps({
 const emit = defineEmits(['auto-hide'])
 
 
-// Compute DaisyUI toast positioning classes based on toastModel
+// Builds positioning classes based on toast model configuration
 const toastClasses = computed(() => [
   TOAST_OPTIONS.TOAST,
   TOAST_OPTIONS.PLACEMENT.VERTICAL[props.toastModel.verticalPosition] || TOAST_OPTIONS.PLACEMENT.VERTICAL.BOTTOM,
@@ -22,6 +26,7 @@ const toastClasses = computed(() => [
 
 let timer = null
 
+// Auto-hide toast after configured duration when visible
 watch(
   () => props.toastModel.isVisible,
   (visible) => {
@@ -34,6 +39,7 @@ watch(
   }
 )
 
+// Cleanup timer on component unmount
 onBeforeUnmount(() => {
   clearTimeout(timer)
 })

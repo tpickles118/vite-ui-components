@@ -1,8 +1,12 @@
+/**
+ * toastModel.js
+ * Toast model class for managing toast notification positioning and alert content.
+ */
 
 import { v4 as uuidv4 } from 'uuid'
 
 /**
- * Toast model for DaisyUI toast wrapper.
+ * Toast model with configurable positioning, alerts, and auto-hide duration.
  */
 export class ToastModel {
     constructor({
@@ -61,17 +65,19 @@ export class ToastModel {
         return this
     }
 
-    // Alert array helpers
+    // Adds an alert to the alerts array
     addAlert(alert) {
         this.alerts.push(alert)
         return this
     }
+
+    // Removes an alert by ID from the alerts array
     removeAlert(alertId) {
         this.alerts = this.alerts.filter((alert) => alert.id !== alertId)
         return this
     }
 
-    // Serialization
+    // Serializes model to plain object
     toJson() {
         return {
             id: this.id,
@@ -82,6 +88,7 @@ export class ToastModel {
         }
     }
 
+    // Creates model instance from plain object
     static fromJson(obj = {}) {
         return new ToastModel({
             id: obj.id,
