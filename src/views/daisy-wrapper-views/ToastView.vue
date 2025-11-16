@@ -6,7 +6,11 @@
 import { ref } from 'vue'
 import { ToastModel } from '@/components/models/toastModel.js'
 import { AlertModel } from '@/components/models/alertModel.js'
+import { ButtonModel } from '@/components/models/buttonModel'
 import DaisyToast from '@/components/base/DaisyToast.vue'
+import DaisyButton from '@/components/base/DaisyButton.vue'
+
+
 
 // Creates an alert model from simplified parameters
 function makeAlert({ type, message = '', title = '', ...rest }) {
@@ -28,6 +32,10 @@ const toastModel = ref(
         duration: 3000, // auto-hide after 3s
     })
 )
+
+// Button model to trigger toast display
+const primaryBtn = new ButtonModel({ label: 'Show Toast from buttonModel', color: 'PRIMARY' })
+
 
 // Displays toast with specified type and message
 function showToast(type, message = '', title = '') {
@@ -62,5 +70,9 @@ function hideToast() {
         </div>
 
         <DaisyToast :toast-model="toastModel" @auto-hide="hideToast" />
+
+        <div class="mt-8">
+            <DaisyButton :button-model="primaryBtn" @click="showToast('INFO', 'Toast from buttonModel')" />
+        </div>
     </div>
 </template>
