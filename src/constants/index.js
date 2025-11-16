@@ -45,6 +45,45 @@ export const BADGE_OPTIONS = {
     GHOST: 'badge-ghost',
 }
 
+export const BUTTON_OPTIONS = {
+    BUTTON: 'btn',
+    COLOR: {
+        NEUTRAL: 'btn-neutral',
+        PRIMARY: 'btn-primary',
+        SECONDARY: 'btn-secondary',
+        ACCENT: 'btn-accent',
+        INFO: 'btn-info',
+        SUCCESS: 'btn-success',
+        WARNING: 'btn-warning',
+        ERROR: 'btn-error',
+    },
+    SIZE: {
+        XS: 'btn-xs',
+        SM: 'btn-sm',
+        MD: 'btn-md',
+        LG: 'btn-lg',
+        XL: 'btn-xl',
+    },
+    VARIANT: {
+        SOFT: 'btn-soft',
+        OUTLINE: 'btn-outline',
+        DASH: 'btn-dash',
+        GHOST: 'btn-ghost',
+        LINK: 'btn-link',
+    },
+    SHAPE: {
+        SQUARE: 'btn-square',
+        CIRCLE: 'btn-circle',
+        WIDE: 'btn-wide',
+        BLOCK: 'btn-block',
+    },
+    STATE: {
+        ACTIVE: 'btn-active',
+        DISABLED: 'btn-disabled',
+    },
+}
+
+
 export const TOAST_OPTIONS = {
     TOAST: 'toast',
     PLACEMENT: {
