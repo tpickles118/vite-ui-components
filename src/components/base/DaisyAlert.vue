@@ -4,8 +4,10 @@
 -->
 <script setup>
 import { computed } from 'vue'
-import { ALERT_OPTIONS } from '@/constants'
+import { ALERT_OPTIONS } from '@/constants/index.js'
 import { AlertModel } from '@/components/models/alertModel.js'
+import DaisyButton from '@/components/base/DaisyButton.vue'
+
 import {
     InformationCircleIcon,
     ExclamationCircleIcon,
@@ -111,27 +113,23 @@ const handleAction = (actionKey) => {
 
         <!-- Render action buttons from model -->
         <div v-if="alertModel?.buttons && alertModel.buttons.length > 0" class="flex gap-2">
-            <button
+            <DaisyButton
                 v-for="button in alertModel.buttons"
                 :key="button.key || button.label"
-                :class="button.class || 'btn btn-sm'"
-                :disabled="button.disabled"
-                @click="handleButtonClick(button.key || button.label)"
-            >
-                {{ button.label || 'Button' }}
-            </button>
+                :button-model="button"
+                @click="() => handleButtonClick(button.key || button.label)"
+            />
         </div>
 
         <!-- Dismiss button -->
-        <button
+         <DaisyButton
             v-if="alertModel?.isDismissible"
-            class="btn btn-sm btn-ghost ml-auto"
+            :button-model="button"
             @click="handleDismiss"
         >
             <XMarkIcon class="size-5" />
-        </button>
+        </DaisyButton>
 
-        <!-- Custom actions slot -->
         <slot name="actions" :on-action="handleAction"></slot>
     </div>
 </template>

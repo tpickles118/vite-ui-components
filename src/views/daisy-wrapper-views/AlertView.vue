@@ -6,6 +6,7 @@
 import { ref } from 'vue'
 import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js'
 import DaisyAlert from '@/components/base/DaisyAlert.vue'
+import { ButtonModel } from '@/components/models/buttonModel.js'
 import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
 // Basic alert examples
@@ -43,7 +44,9 @@ const infoAlert2 = ref(
         title: 'New message!',
         message: 'You have 1 unread message',
         isSoft: true,
-        buttons: [{ key: 'view', label: 'View', class: 'btn btn-sm btn-primary' }],
+        buttons: [
+            new ButtonModel({ key: 'view', label: 'View', color: 'PRIMARY', size: 'SM' })
+        ],
     })
 )
 
@@ -55,9 +58,9 @@ const warningAlert2 = ref(
         message: 'You have unsaved changes. Do you want to save them?',
         isOutline: true,
         buttons: [
-            { key: 'save', label: 'Save', class: 'btn btn-sm btn-success' },
-            { key: 'discard', label: 'Discard', class: 'btn btn-sm btn-ghost' },
-        ],
+            new ButtonModel({ key: 'save', label: 'Save', color: 'SUCCESS', size: 'SM' }),
+            new ButtonModel({ key: 'discard', label: 'Discard', color: 'GHOST', size: 'SM', variant: 'GHOST' }),
+        ]
     })
 )
 
@@ -78,7 +81,9 @@ const errorAlert2 = ref(
         title: 'Connection failed',
         message: 'Unable to connect to server. Please try again.',
         isDash: true,
-        buttons: [{ key: 'retry', label: 'Retry', class: 'btn btn-sm btn-error' }],
+        buttons: [
+            new ButtonModel({ key: 'retry', label: 'Retry', color: 'ERROR', size: 'SM' })
+        ],
         isDismissible: true,
     })
 )
