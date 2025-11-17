@@ -4,7 +4,7 @@
 -->
 <script setup>
 import { ref } from 'vue'
-import { CARD_OPTIONS, BUTTON_OPTIONS, BADGE_OPTIONS } from '@/constants/index.js'
+import { CARD_OPTIONS, BUTTON_OPTIONS, BADGE_OPTIONS, IMAGES } from '@/constants/index.js'
 import { CardModel } from '@/components/models/cardModel.js'
 import { ButtonModel } from '@/components/models/buttonModel.js'
 import { BadgeModel } from '@/components/models/badgeModel.js'
