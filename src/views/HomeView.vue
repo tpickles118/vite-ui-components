@@ -1,16 +1,21 @@
-<script setup></script>
+<script setup>
+import { NAV_GROUPS } from '@/constants/navigation.js'
+</script>
 
 <template>
     <div class="container mx-auto p-8">
         <h1 class="text-4xl font-bold mb-4">Welcome to Daisy Component Tests</h1>
-        <ul class="list-disc list-inside">
-            <li><router-link to="/about" class="link link-hover">About Page</router-link></li>
-            <li><router-link to="/users-api" class="link link-hover">Axios API Demo</router-link></li>
-            <li><router-link to="/badge-view" class="link link-hover">Daisy Badge Tests</router-link></li>
-            <li><router-link to="/alert-view" class="link link-hover">Daisy Alert Tests</router-link></li>
-            <li><router-link to="/toast-view" class="link link-hover">Daisy Toast Tests</router-link></li>
-            <li><router-link to="/button-view" class="link link-hover">Daisy Button Tests</router-link></li>
-            <li><router-link to="/card-view" class="link link-hover">Daisy Card Tests</router-link></li>            
-        </ul>
+
+        <!-- Iterate through navigation groups -->
+        <div v-for="(group, key) in NAV_GROUPS" :key="key" class="mb-6">
+            <h2 class="text-2xl font-semibold mb-2">{{ group.label }}</h2>
+            <ul class="list-disc list-inside ml-4">
+                <li v-for="navItem in group.items" :key="navItem.routeName">
+                    <router-link :to="navItem.path" class="link link-hover">
+                        {{ navItem.label }}
+                    </router-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>

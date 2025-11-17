@@ -1,28 +1,23 @@
+/**
+ * router/index.js
+ * Vue Router configuration using centralized route constants
+ */
+
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/HomeView.vue'
-import About from '@/views/AboutView.vue'
-import UsersAPI from '@/views/UsersApi.vue'
-import BadgeView from '@/views/daisy-wrapper-views/BadgeView.vue'
-import AlertView from '@/views/daisy-wrapper-views/AlertView.vue'
-import ToastView from '@/views/daisy-wrapper-views/ToastView.vue'
-import ButtonView from '@/views/daisy-wrapper-views/ButtonView.vue'
-import CardView from '@/views/daisy-wrapper-views/CardView.vue'
-
-const routes = [
-    { path: '/', name: 'Home', component: Home },
-    { path: '/about', name: 'About', component: About },
-    { path: '/users-api', name: 'UsersApi', component: UsersAPI },
-    { path: '/badge-view', name: 'BadgeView', component: BadgeView },
-    { path: '/alert-view', name: 'AlertView', component: AlertView },
-    { path: '/toast-view', name: 'ToastView', component: ToastView },
-    { path: '/button-view', name: 'ButtonView', component: ButtonView },
-    { path: '/card-view', name: 'CardView', component: CardView },
-
-]
+import { ROUTES } from '@/constants/routes.js'
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes: ROUTES,
+})
+
+// Optional: Global navigation guard using route metadata
+router.beforeEach((to, from, next) => {
+    // Set page title from route meta
+    if (to.meta?.title) {
+        document.title = `${to.meta.title} | Daisy Component Tests`
+    }
+    next()
 })
 
 export default router
