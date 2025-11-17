@@ -1,6 +1,7 @@
-<!-- DaisyCard.vue -->
-<!-- Reusable card component with DaisyUI styling and flexible slot support. -->
-
+<!--
+  DaisyCard.vue
+  Reusable card component with DaisyUI styling and flexible slot support for images, titles, and actions.
+-->
 <script setup>
 import { computed } from 'vue'
 import { CARD_OPTIONS } from '@/constants/index.js'
@@ -8,14 +9,12 @@ import { CardModel } from '@/components/models/cardModel.js'
 
 const props = defineProps({
     cardModel: {
-        type: Object, // CardModel
+        type: Object,
         required: true,
     },
 })
 
-/**
- * Builds CSS classes for the card container
- */
+// Builds CSS classes based on card model properties
 const cardClasses = computed(() => {
     const cm = props.cardModel
     const cls = [CARD_OPTIONS.CARD]
@@ -35,20 +34,20 @@ const cardClasses = computed(() => {
 
 <template>
     <div :class="cardClasses" class="bg-gray-100">
-        <!-- Figure/Image slot -->
+        <!-- Image/figure slot -->
         <slot name="image"></slot>
 
-        <!-- Card body (required container) -->
+        <!-- Card body container -->
         <div :class="CARD_OPTIONS.BODY">
             <!-- Title slot -->
             <slot name="title">
                 <h2 v-if="$slots.title" :class="CARD_OPTIONS.TITLE"></h2>
             </slot>
 
-            <!-- Main content (default slot) -->
+            <!-- Main content slot -->
             <slot></slot>
 
-            <!-- Actions slot -->
+            <!-- Actions slot for buttons -->
             <div v-if="$slots.actions" :class="CARD_OPTIONS.ACTIONS">
                 <slot name="actions"></slot>
             </div>

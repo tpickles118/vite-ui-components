@@ -1,8 +1,16 @@
+/**
+ * cardModel.js
+ * Card model class for managing card component layout, styling, and content configuration.
+ */
+
 import { v4 as uuid4 } from 'uuid'
 
+/**
+ * Card model with configurable size, layout, borders, shadows, and custom classes.
+ */
 export class CardModel {
     constructor({
-        id = uuid4,
+        id = uuid4(),
         size = null,
         layout = null,
         isBordered = false,
@@ -29,7 +37,6 @@ export class CardModel {
         this.hasImageFull = hasImageFull
         this.shadow = shadow
         this.width = width
-
         this.customClasses = customClasses
     }
 
@@ -44,7 +51,6 @@ export class CardModel {
             hasImageFull: this.hasImageFull,
             shadow: this.shadow,
             width: this.width,
-
             customClasses: this.customClasses,
         }
     }
@@ -60,12 +66,11 @@ export class CardModel {
             hasImageFull: obj.hasImageFull,
             shadow: obj.shadow,
             width: obj.width,
-
             customClasses: obj.customClasses,
         })
     }
 
-        // Compares this model with another by ID or properties
+    // Compares this model with another by ID or properties
     equals(other) {
         if (!other) return false
         if (other.id && this.id) return this.id === other.id
@@ -77,7 +82,6 @@ export class CardModel {
             this.hasImageFull === other.hasImageFull &&
             this.shadow === other.shadow &&
             this.width === other.width
-
-        );
+        )
     }
 }
