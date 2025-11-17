@@ -1,23 +1,25 @@
-<!--
-  BadgeView.vue
+<!-- BadgeView.vue
   Demo view showcasing DaisyBadge component with various configurations.
 -->
 <script setup>
 import { ref } from 'vue'
+import { BADGE_OPTIONS } from '@/constants'
 import { BadgeModel } from '@/components/models/badgeModel.js'
 import DaisyBadge from '@/components/base/DaisyBadge.vue'
 
 // Basic badge examples
 const basic = new BadgeModel()
+
 const primarySoft = new BadgeModel({
-    size: 'LG',
-    color: 'PRIMARY',
+    size: BADGE_OPTIONS.SIZE.LG,
+    color: BADGE_OPTIONS.COLOR.PRIMARY,
     isSoft: true,
     label: 'Primary Soft',
 })
+
 const outlined = new BadgeModel({
-    size: 'SM',
-    color: 'SECONDARY',
+    size: BADGE_OPTIONS.SIZE.SM,
+    color: BADGE_OPTIONS.COLOR.SECONDARY,
     isOutline: true,
     label: 'Outline',
 })
@@ -26,7 +28,7 @@ const outlined = new BadgeModel({
 const filterBadge = ref(
     new BadgeModel({
         label: 'Filter Badge - hover and click',
-        color: 'PRIMARY',
+        color: BADGE_OPTIONS.COLOR.PRIMARY,
         isClickable: true,
     })
 )
@@ -34,27 +36,27 @@ const filterBadge = ref(
 const tagBadge = ref(
     new BadgeModel({
         label: 'Important - click with icon',
-        color: 'WARNING',
+        color: BADGE_OPTIONS.COLOR.WARNING,
         isDismissible: true,
     })
 )
 
 // Handles badge click events
 const handleBadgeClick = ({ badgeId, label }) => {
-    console.log(`Badge clicked: ${label} (ID: ${badgeId})`)
+    console.log('Badge clicked:', label, 'ID:', badgeId)
     // Handle filter toggle, navigation, etc.
 }
 
 // Handles badge dismissal
 const handleBadgeDismiss = ({ badgeId, label }) => {
-    console.log(`Badge dismissed: ${label} (ID: ${badgeId})`)
+    console.log('Badge dismissed:', label, 'ID:', badgeId)
     // Remove badge from list
 }
 
 // Handles badge hover events
 const handleBadgeHover = ({ badgeId }) => {
-    console.log(`Badge hovered: ${badgeId}`)
-    // Show to
+    console.log('Badge hovered:', badgeId)
+    // Show tooltip, etc.
 }
 </script>
 
@@ -66,9 +68,11 @@ const handleBadgeHover = ({ badgeId }) => {
             <DaisyBadge :badge-model="basic" />
             <DaisyBadge :badge-model="primarySoft" />
             <DaisyBadge :badge-model="outlined" />
+
             <!-- slot example -->
             <DaisyBadge :badge-model="basic">Overridden slot</DaisyBadge>
         </div>
+
         <div class="space-x-2">
             <DaisyBadge
                 :badge-model="filterBadge"

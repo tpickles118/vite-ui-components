@@ -15,13 +15,9 @@ export class CardModel {
         layout = null,
         isBordered = false,
         isDash = false,
-        hasImageFull = false,
+        isImageFull = false,
         shadow = null,
         width = null,
-        title = null,
-        imageUrl = null,
-        imageAlt = null,
-        actions = [],
         customClasses = [],
     } = {}) {
         Object.defineProperty(this, 'id', {
@@ -34,7 +30,7 @@ export class CardModel {
         this.layout = layout
         this.isBordered = isBordered
         this.isDash = isDash
-        this.hasImageFull = hasImageFull
+        this.isImageFull = isImageFull
         this.shadow = shadow
         this.width = width
         this.customClasses = customClasses
@@ -48,7 +44,7 @@ export class CardModel {
             layout: this.layout,
             isBordered: this.isBordered,
             isDash: this.isDash,
-            hasImageFull: this.hasImageFull,
+            isImageFull: this.isImageFull,
             shadow: this.shadow,
             width: this.width,
             customClasses: this.customClasses,
@@ -63,7 +59,7 @@ export class CardModel {
             layout: obj.layout,
             isBordered: obj.isBordered,
             isDash: obj.isDash,
-            hasImageFull: obj.hasImageFull,
+            isImageFull: obj.isImageFull,
             shadow: obj.shadow,
             width: obj.width,
             customClasses: obj.customClasses,
@@ -79,7 +75,7 @@ export class CardModel {
             this.layout === other.layout &&
             this.isBordered === other.isBordered &&
             this.isDash === other.isDash &&
-            this.hasImageFull === other.hasImageFull &&
+            this.isImageFull === other.isImageFull &&
             this.shadow === other.shadow &&
             this.width === other.width
         )

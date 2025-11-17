@@ -97,7 +97,7 @@ const saleBadge = new BadgeModel({
 
 // Full background image card
 const imageFullCard = new CardModel({
-    hasImageFull: true,
+    isImageFull: true, // ✅ CORRECTED: was hasImageFull
     shadow: CARD_OPTIONS.SHADOW.LG,
     width: CARD_OPTIONS.WIDTH.SM,
 })

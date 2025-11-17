@@ -1,225 +1,299 @@
-<!--
-  ButtonView.vue
+<!-- ButtonView.vue
   Demo view showcasing DaisyButton component with all style variants, states, and event handling.
 -->
 <script setup>
 import { ref } from 'vue'
+import { BUTTON_OPTIONS } from '@/constants'
 import { ButtonModel } from '@/components/models/buttonModel.js'
 import DaisyButton from '@/components/base/DaisyButton.vue'
 import { RocketLaunchIcon, CheckCircleIcon } from '@heroicons/vue/24/outline'
 
 // Color variant examples
-const primaryBtn = new ButtonModel({ label: 'Primary', color: 'PRIMARY' })
-const secondaryBtn = new ButtonModel({ label: 'Secondary', color: 'SECONDARY' })
-const accentBtn = new ButtonModel({ label: 'Accent', color: 'ACCENT' })
-const infoBtn = new ButtonModel({ label: 'Info', color: 'INFO' })
-const successBtn = new ButtonModel({ label: 'Success', color: 'SUCCESS' })
-const warningBtn = new ButtonModel({ label: 'Warning', color: 'WARNING' })
-const errorBtn = new ButtonModel({ label: 'Error', color: 'ERROR' })
-const neutralBtn = new ButtonModel({ label: 'Neutral', color: 'NEUTRAL' })
+const primaryBtn = new ButtonModel({ 
+  label: 'Primary', 
+  color: BUTTON_OPTIONS.COLOR.PRIMARY 
+})
+const secondaryBtn = new ButtonModel({ 
+  label: 'Secondary', 
+  color: BUTTON_OPTIONS.COLOR.SECONDARY 
+})
+const accentBtn = new ButtonModel({ 
+  label: 'Accent', 
+  color: BUTTON_OPTIONS.COLOR.ACCENT 
+})
+const infoBtn = new ButtonModel({ 
+  label: 'Info', 
+  color: BUTTON_OPTIONS.COLOR.INFO 
+})
+const successBtn = new ButtonModel({ 
+  label: 'Success', 
+  color: BUTTON_OPTIONS.COLOR.SUCCESS 
+})
+const warningBtn = new ButtonModel({ 
+  label: 'Warning', 
+  color: BUTTON_OPTIONS.COLOR.WARNING 
+})
+const errorBtn = new ButtonModel({ 
+  label: 'Error', 
+  color: BUTTON_OPTIONS.COLOR.ERROR 
+})
+const neutralBtn = new ButtonModel({ 
+  label: 'Neutral', 
+  color: BUTTON_OPTIONS.COLOR.NEUTRAL 
+})
 
 // Size variant examples
-const smallBtn = new ButtonModel({ label: 'Small', size: 'SM' })
-const largeBtn = new ButtonModel({ label: 'Large', size: 'LG' })
+const smallBtn = new ButtonModel({ 
+  label: 'Small', 
+  size: BUTTON_OPTIONS.SIZE.SM 
+})
+const largeBtn = new ButtonModel({ 
+  label: 'Large', 
+  size: BUTTON_OPTIONS.SIZE.LG 
+})
 
 // Style variant examples
-const outlineBtn = new ButtonModel({ label: 'Outline', color: 'PRIMARY', variant: 'OUTLINE' })
-const ghostBtn = new ButtonModel({ label: 'Ghost', color: 'PRIMARY', variant: 'GHOST' })
-const dashBtn = new ButtonModel({ label: 'Dash', color: 'PRIMARY', variant: 'DASH' })
-const softBtn = new ButtonModel({ label: 'Soft', color: 'PRIMARY', variant: 'SOFT' })
-const linkBtn = new ButtonModel({ label: 'Link', color: 'PRIMARY', variant: 'LINK' })
+const outlineBtn = new ButtonModel({
+  label: 'Outline',
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  variant: BUTTON_OPTIONS.VARIANT.OUTLINE,
+})
+const ghostBtn = new ButtonModel({
+  label: 'Ghost',
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  variant: BUTTON_OPTIONS.VARIANT.GHOST,
+})
+const dashBtn = new ButtonModel({
+  label: 'Dash',
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  variant: BUTTON_OPTIONS.VARIANT.DASH,
+})
+const softBtn = new ButtonModel({
+  label: 'Soft',
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  variant: BUTTON_OPTIONS.VARIANT.SOFT,
+})
+const linkBtn = new ButtonModel({
+  label: 'Link',
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  variant: BUTTON_OPTIONS.VARIANT.LINK,
+})
 
 // Shape variant examples
 const circleBtn = new ButtonModel({
-    shape: 'CIRCLE',
-    color: 'ACCENT',
-    icon: RocketLaunchIcon,
-    label: '',
-    size: 'LG',
+  shape: BUTTON_OPTIONS.SHAPE.CIRCLE,
+  color: BUTTON_OPTIONS.COLOR.ACCENT,
+  icon: RocketLaunchIcon,
+  label: '',
+  size: BUTTON_OPTIONS.SIZE.LG,
 })
 const squareBtn = new ButtonModel({
-    shape: 'SQUARE',
-    color: 'PRIMARY',
-    icon: RocketLaunchIcon,
-    label: '',
-    size: 'LG',
+  shape: BUTTON_OPTIONS.SHAPE.SQUARE,
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  icon: RocketLaunchIcon,
+  label: '',
+  size: BUTTON_OPTIONS.SIZE.LG,
 })
-const wideBtn = new ButtonModel({ shape: 'WIDE', color: 'SUCCESS', label: 'Wide' })
-const blockBtn = new ButtonModel({ shape: 'BLOCK', color: 'PRIMARY', label: 'Block' })
+const wideBtn = new ButtonModel({
+  shape: BUTTON_OPTIONS.SHAPE.WIDE,
+  color: BUTTON_OPTIONS.COLOR.SUCCESS,
+  label: 'Wide',
+})
+const blockBtn = new ButtonModel({
+  shape: BUTTON_OPTIONS.SHAPE.BLOCK,
+  color: BUTTON_OPTIONS.COLOR.PRIMARY,
+  label: 'Block',
+})
 
 // State examples
-const activeBtn = ref(new ButtonModel({ label: 'Active', color: 'INFO', isActive: true }))
-const disabledBtn = new ButtonModel({ label: 'Disabled', color: 'ERROR', isDisabled: true })
-const loadingBtn = ref(new ButtonModel({ label: 'Loading', color: 'PRIMARY', isLoading: true }))
+const activeBtn = ref(
+  new ButtonModel({
+    label: 'Active',
+    color: BUTTON_OPTIONS.COLOR.INFO,
+    isActive: true,
+  })
+)
+const disabledBtn = new ButtonModel({
+  label: 'Disabled',
+  color: BUTTON_OPTIONS.COLOR.ERROR,
+  isDisabled: true,
+})
+const loadingBtn = ref(
+  new ButtonModel({
+    label: 'Loading',
+    color: BUTTON_OPTIONS.COLOR.PRIMARY,
+    isLoading: true,
+  })
+)
 
 // Icon position examples
 const iconLeftBtn = new ButtonModel({
-    label: 'Left Icon',
-    color: 'SUCCESS',
-    icon: CheckCircleIcon,
-    iconPosition: 'START',
+  label: 'Left Icon',
+  color: BUTTON_OPTIONS.COLOR.SUCCESS,
+  icon: CheckCircleIcon,
+  iconPosition: 'START',
 })
 const iconRightBtn = new ButtonModel({
-    label: 'Right Icon',
-    color: 'SUCCESS',
-    icon: CheckCircleIcon,
-    iconPosition: 'END',
+  label: 'Right Icon',
+  color: BUTTON_OPTIONS.COLOR.SUCCESS,
+  icon: CheckCircleIcon,
+  iconPosition: 'END',
 })
 
 // Edge case examples
 const loadingDisabledBtn = new ButtonModel({
-    label: 'Loading & Disabled',
-    color: 'ERROR',
-    isLoading: true,
-    isDisabled: true,
+  label: 'Loading + Disabled',
+  color: BUTTON_OPTIONS.COLOR.ERROR,
+  isLoading: true,
+  isDisabled: true,
 })
 const iconOnlyBtn = new ButtonModel({
-    color: 'ACCENT',
-    shape: 'CIRCLE',
-    icon: RocketLaunchIcon,
-    size: 'LG',
-    label: '',
+  color: BUTTON_OPTIONS.COLOR.ACCENT,
+  shape: BUTTON_OPTIONS.SHAPE.CIRCLE,
+  icon: RocketLaunchIcon,
+  size: BUTTON_OPTIONS.SIZE.LG,
+  label: '',
 })
 const longLabelBtn = new ButtonModel({
-    color: 'INFO',
-    label: 'This is a very long button label for demo purposes.',
+  color: BUTTON_OPTIONS.COLOR.INFO,
+  label: 'This is a very long button label for demo purposes.',
 })
 
 // Handles button click events
 function handleButtonClick({ buttonId, label }) {
-    console.log(`Clicked: ${label} (ID: ${buttonId})`)
+  console.log('Clicked:', label, 'ID:', buttonId)
 }
 
 // Handles button focus events
 function handleFocus({ buttonModel }) {
-    console.log(`Focused: ${buttonModel.label}`)
+  console.log('Focused:', buttonModel.label)
 }
 
 // Handles button blur events
 function handleBlur({ buttonModel }) {
-    console.log(`Blurred: ${buttonModel.label}`)
+  console.log('Blurred:', buttonModel.label)
 }
 
 // Handles mouse enter events
 function handleMouseEnter({ buttonModel }) {
-    console.log(`Mouse entered: ${buttonModel.label}`)
+  console.log('Mouse entered:', buttonModel.label)
 }
 
 // Handles mouse leave events
 function handleMouseLeave({ buttonModel }) {
-    console.log(`Mouse left: ${buttonModel.label}`)
+  console.log('Mouse left:', buttonModel.label)
 }
 </script>
 
 <template>
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-6">DaisyButton Component Test</h1>
+  <div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-6">DaisyButton Component Test</h1>
 
-        <!-- Color variants -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Color Variants</h2>
-            <div class="flex flex-wrap gap-2">
-                <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="secondaryBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="accentBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="infoBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="successBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="warningBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="errorBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="neutralBtn" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- Color variants -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Color Variants</h2>
+      <div class="flex flex-wrap gap-2">
+        <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="secondaryBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="accentBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="infoBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="successBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="warningBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="errorBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="neutralBtn" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- Size variants -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Size Variants</h2>
-            <div class="flex gap-2">
-                <DaisyButton :button-model="smallBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="largeBtn" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- Size variants -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Size Variants</h2>
+      <div class="flex gap-2">
+        <DaisyButton :button-model="smallBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="largeBtn" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- Style variants -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Style Variants</h2>
-            <div class="flex flex-wrap gap-2">
-                <DaisyButton :button-model="outlineBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="ghostBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="dashBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="softBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="linkBtn" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- Style variants -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Style Variants</h2>
+      <div class="flex flex-wrap gap-2">
+        <DaisyButton :button-model="outlineBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="ghostBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="dashBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="softBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="linkBtn" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- Shape variants -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Shape Variants</h2>
-            <div class="flex flex-wrap gap-2 items-center">
-                <DaisyButton :button-model="circleBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="squareBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="wideBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="blockBtn" class="w-full" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- Shape variants -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Shape Variants</h2>
+      <div class="flex flex-wrap gap-2 items-center">
+        <DaisyButton :button-model="circleBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="squareBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="wideBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="blockBtn" class="w-full" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- States -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">States</h2>
-            <div class="flex gap-2">
-                <DaisyButton :button-model="activeBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="disabledBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="loadingBtn" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- States -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">States</h2>
+      <div class="flex gap-2">
+        <DaisyButton :button-model="activeBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="disabledBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="loadingBtn" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- Icon positioning -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Icon & Content</h2>
-            <div class="flex gap-2">
-                <DaisyButton :button-model="iconLeftBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="iconRightBtn" @click="handleButtonClick" />
-            </div>
-        </section>
+    <!-- Icon positioning -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Icon Content</h2>
+      <div class="flex gap-2">
+        <DaisyButton :button-model="iconLeftBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="iconRightBtn" @click="handleButtonClick" />
+      </div>
+    </section>
 
-        <!-- Event handling -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Event Handling</h2>
-            <div class="flex gap-2">
-                <DaisyButton
-                    :button-model="primaryBtn"
-                    @focus="handleFocus"
-                    @blur="handleBlur"
-                    @mouseenter="handleMouseEnter"
-                    @mouseleave="handleMouseLeave"
-                    @click="handleButtonClick"
-                />
-                <DaisyButton
-                    :button-model="disabledBtn"
-                    @focus="handleFocus"
-                    @blur="handleBlur"
-                    @mouseenter="handleMouseEnter"
-                    @mouseleave="handleMouseLeave"
-                    @click="handleButtonClick"
-                />
-            </div>
-            <p class="text-xs mt-2 text-gray-500">
-                Watch the console for event logs when you interact with these buttons.
-            </p>
-        </section>
+    <!-- Event handling -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Event Handling</h2>
+      <div class="flex gap-2">
+        <DaisyButton
+          :button-model="primaryBtn"
+          @focus="handleFocus"
+          @blur="handleBlur"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+          @click="handleButtonClick"
+        />
+        <DaisyButton
+          :button-model="disabledBtn"
+          @focus="handleFocus"
+          @blur="handleBlur"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+          @click="handleButtonClick"
+        />
+      </div>
+      <p class="text-xs mt-2 text-gray-500">
+        Watch the console for event logs when you interact with these buttons.
+      </p>
+    </section>
 
-        <!-- Edge cases -->
-        <section class="mb-6">
-            <h2 class="text-lg font-semibold mb-2">Edge Cases</h2>
-            <div class="flex gap-2">
-                <DaisyButton
-                    :button-model="loadingDisabledBtn"
-                    @click="handleButtonClick"
-                    @focus="handleFocus"
-                />
-                <DaisyButton :button-model="iconOnlyBtn" @click="handleButtonClick" />
-                <DaisyButton :button-model="longLabelBtn" @click="handleButtonClick" />
-            </div>
-        </section>
-    </div>
+    <!-- Edge cases -->
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold mb-2">Edge Cases</h2>
+      <div class="flex gap-2">
+        <DaisyButton
+          :button-model="loadingDisabledBtn"
+          @click="handleButtonClick"
+          @focus="handleFocus"
+        />
+        <DaisyButton :button-model="iconOnlyBtn" @click="handleButtonClick" />
+        <DaisyButton :button-model="longLabelBtn" @click="handleButtonClick" />
+      </div>
+    </section>
+  </div>
 </template>

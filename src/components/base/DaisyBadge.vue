@@ -19,28 +19,18 @@ const emit = defineEmits(['click', 'dismiss', 'hover', 'mouseenter', 'mouseleave
 
 // Builds CSS classes based on badge model properties
 const classes = computed(() => {
-    const bm = props.badgeModel || {}
+    const bm = props.badgeModel
     const cls = [BADGE_OPTIONS.BADGE]
 
-    if (bm.size) {
-        const sizeVal = BADGE_OPTIONS.SIZE?.[bm.size] ?? bm.size
-        if (sizeVal) cls.push(sizeVal)
-    }
-
-    if (bm.color) {
-        const colorVal = BADGE_OPTIONS.COLOR?.[bm.color] ?? bm.color
-        if (colorVal) cls.push(colorVal)
-    }
-
+    if (bm.size) cls.push(BADGE_OPTIONS.SIZE?.[bm.size] ?? bm.size)
+    if (bm.color) cls.push(BADGE_OPTIONS.COLOR?.[bm.color] ?? bm.color)
     if (bm.isSoft) cls.push(BADGE_OPTIONS.SOFT)
     if (bm.isOutline) cls.push(BADGE_OPTIONS.OUTLINE)
     if (bm.isDash) cls.push(BADGE_OPTIONS.DASH)
     if (bm.isGhost) cls.push(BADGE_OPTIONS.GHOST)
 
-    // add cursor pointer if click handler is interactive
-    if (bm.isClickable || bm.isDismissible) {
-        cls.push('cursor-pointer')
-    }
+    // add cursor-pointer if click handler is interactive
+    if (bm.isClickable || bm.isDismissible) cls.push('cursor-pointer')
 
     return cls
 })
@@ -84,9 +74,6 @@ const handleMouseLeave = (event) => {
         event,
     })
 }
-
-
-
 </script>
 
 <template>
@@ -94,7 +81,6 @@ const handleMouseLeave = (event) => {
         :id="badgeModel?.id"
         :class="classes"
         role="status"
-        aria-label="badgeModel?.ariaLabel || 'badge'"
         @click="handleClick"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
@@ -102,14 +88,13 @@ const handleMouseLeave = (event) => {
         <slot>{{ badgeModel?.label }}</slot>
 
         <!-- dismiss button -->
-         <button 
+        <button
             v-if="badgeModel?.isDismissible"
             type="button"
             class="ml-1 inline-flex items-center"
             @click="handleDismiss"
-            aria-label="Remove badge"
         >
-        <XMarkIcon class="size-3" />
-    </button>
+            <XMarkIcon class="size-3" />
+        </button>
     </span>
 </template>

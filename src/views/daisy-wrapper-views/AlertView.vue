@@ -1,9 +1,9 @@
-<!--
-  AlertView.vue
+<!-- AlertView.vue
   Demo view showcasing DaisyAlert component with various configurations.
 -->
 <script setup>
 import { ref } from 'vue'
+import { ALERT_OPTIONS, BUTTON_OPTIONS } from '@/constants'
 import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js'
 import DaisyAlert from '@/components/base/DaisyAlert.vue'
 import { ButtonModel } from '@/components/models/buttonModel.js'
@@ -11,22 +11,26 @@ import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
 // Basic alert examples
 const successAlert = new AlertModel({
-    type: 'SUCCESS',
+    type: ALERT_OPTIONS.TYPE.SUCCESS,
     message: 'This is a success alert with AlertModel!',
 })
+
 const errorAlert = new AlertModel({
-    type: 'ERROR',
+    type: ALERT_OPTIONS.TYPE.ERROR,
     message: 'This is an error alert with AlertModel!',
 })
+
 const infoAlert = new AlertModel({
-    type: 'INFO',
+    type: ALERT_OPTIONS.TYPE.INFO,
     message: 'This is an info alert with AlertModel!',
-    direction: 'vertical',
+    direction: ALERT_OPTIONS.DIRECTION.VERTICAL,
 })
+
 const warningAlert = new AlertModel({
-    type: 'WARNING',
+    type: ALERT_OPTIONS.TYPE.WARNING,
     message: 'This is a warning alert with AlertModel!',
 })
+
 const Warning = new WarningAlertModel({
     message: 'This is another success alert using WarningAlertModel!',
 })
@@ -40,29 +44,41 @@ const customAlert = new CustomAlertModel({
 const infoAlert2 = ref(
     new AlertModel({
         id: 'info-alert-1',
-        type: 'INFO',
+        type: ALERT_OPTIONS.TYPE.INFO,
         title: 'New message!',
         message: 'You have 1 unread message',
         isSoft: true,
-        buttons: [new ButtonModel({ key: 'view', label: 'View', color: 'PRIMARY', size: 'SM' })],
+        buttons: [
+            new ButtonModel({
+                key: 'view',
+                label: 'View',
+                color: BUTTON_OPTIONS.COLOR.PRIMARY,
+                size: BUTTON_OPTIONS.SIZE.SM,
+            }),
+        ],
     })
 )
 
 const warningAlert2 = ref(
     new AlertModel({
         id: 'warning-alert-1',
-        type: 'WARNING',
+        type: ALERT_OPTIONS.TYPE.WARNING,
         title: 'Unsaved changes',
         message: 'You have unsaved changes. Do you want to save them?',
         isOutline: true,
         buttons: [
-            new ButtonModel({ key: 'save', label: 'Save', color: 'SUCCESS', size: 'SM' }),
+            new ButtonModel({
+                key: 'save',
+                label: 'Save',
+                color: BUTTON_OPTIONS.COLOR.SUCCESS,
+                size: BUTTON_OPTIONS.SIZE.SM,
+            }),
             new ButtonModel({
                 key: 'discard',
                 label: 'Discard',
-                color: 'GHOST',
-                size: 'SM',
-                variant: 'GHOST',
+                color: BUTTON_OPTIONS.COLOR.GHOST,
+                size: BUTTON_OPTIONS.SIZE.SM,
+                variant: BUTTON_OPTIONS.VARIANT.GHOST,
             }),
         ],
     })
@@ -71,7 +87,7 @@ const warningAlert2 = ref(
 const successAlert2 = ref(
     new AlertModel({
         id: 'success-alert-1',
-        type: 'SUCCESS',
+        type: ALERT_OPTIONS.TYPE.SUCCESS,
         message: 'Your purchase has been confirmed!',
         isSoft: true,
         isDismissible: true,
@@ -81,11 +97,18 @@ const successAlert2 = ref(
 const errorAlert2 = ref(
     new AlertModel({
         id: 'error-alert-1',
-        type: 'ERROR',
+        type: ALERT_OPTIONS.TYPE.ERROR,
         title: 'Connection failed',
         message: 'Unable to connect to server. Please try again.',
         isDash: true,
-        buttons: [new ButtonModel({ key: 'retry', label: 'Retry', color: 'ERROR', size: 'SM' })],
+        buttons: [
+            new ButtonModel({
+                key: 'retry',
+                label: 'Retry',
+                color: BUTTON_OPTIONS.COLOR.ERROR,
+                size: BUTTON_OPTIONS.SIZE.SM,
+            }),
+        ],
         isDismissible: true,
     })
 )
@@ -93,7 +116,7 @@ const errorAlert2 = ref(
 const customAlert2 = ref(
     new AlertModel({
         id: 'custom-alert-1',
-        type: 'INFO',
+        type: ALERT_OPTIONS.TYPE.INFO,
         message: '12 unread messages. Tap to see.',
         isSoft: true,
     })
@@ -101,8 +124,7 @@ const customAlert2 = ref(
 
 // Handles button click events from alerts
 const handleButtonClick = ({ alertId, buttonKey, alertModel }) => {
-    console.log(`Button clicked: ${buttonKey} on alert: ${alertId}`)
-
+    console.log('Button clicked:', buttonKey, 'on alert', alertId)
     switch (buttonKey) {
         case 'view':
             console.log('Navigating to messages...')
@@ -121,12 +143,12 @@ const handleButtonClick = ({ alertId, buttonKey, alertModel }) => {
 
 // Handles alert dismissal
 const handleDismiss = ({ alertId }) => {
-    console.log(`Alert dismissed: ${alertId}`)
+    console.log('Alert dismissed:', alertId)
 }
 
 // Handles custom action events
 const handleAction = ({ alertId, actionName }) => {
-    console.log(`Custom action: ${actionName} on alert: ${alertId}`)
+    console.log('Custom action:', actionName, 'on alert', alertId)
 }
 
 // Custom button handler for slot example
@@ -169,9 +191,9 @@ const handleCustomSee = () => {
                 <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with AlertModel, Message Overridden
                 </h3>
-                <DaisyAlert :alert-model="successAlert"
-                    >Overridden slot message for success alert</DaisyAlert
-                >
+                <DaisyAlert :alert-model="successAlert">
+                    Overridden slot message for success alert
+                </DaisyAlert>
             </section>
 
             <section>
@@ -224,7 +246,7 @@ const handleCustomSee = () => {
                     :alert-model="
                         new AlertModel({
                             id: 'complex-alert',
-                            type: 'WARNING',
+                            type: ALERT_OPTIONS.TYPE.WARNING,
                             title: 'Payment Required',
                             message: 'Your subscription expires in 3 days.',
                             isOutline: true,
@@ -232,15 +254,15 @@ const handleCustomSee = () => {
                                 new ButtonModel({
                                     key: 'upgrade',
                                     label: 'Upgrade Now',
-                                    color: 'WARNING',
-                                    size: 'SM',
+                                    color: BUTTON_OPTIONS.COLOR.WARNING,
+                                    size: BUTTON_OPTIONS.SIZE.SM,
                                 }),
                                 new ButtonModel({
                                     key: 'remind',
                                     label: 'Remind Later',
-                                    color: 'GHOST',
-                                    size: 'SM',
-                                    variant: 'GHOST',
+                                    color: BUTTON_OPTIONS.COLOR.GHOST,
+                                    size: BUTTON_OPTIONS.SIZE.SM,
+                                    variant: BUTTON_OPTIONS.VARIANT.GHOST,
                                 }),
                             ],
                             isDismissible: true,

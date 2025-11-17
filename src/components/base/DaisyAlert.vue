@@ -4,11 +4,10 @@
 -->
 <script setup>
 import { computed } from 'vue'
-import { ALERT_OPTIONS } from '@/constants/index.js'
+import { ALERT_OPTIONS, BUTTON_OPTIONS } from '@/constants/index.js'
 import { AlertModel } from '@/components/models/alertModel.js'
 import { ButtonModel } from '../models/buttonModel.js'
 import DaisyButton from '@/components/base/DaisyButton.vue'
-
 
 import {
     InformationCircleIcon,
@@ -45,22 +44,14 @@ const currentIcon = computed(() => {
 
 // Builds CSS classes based on alert model properties
 const classes = computed(() => {
-    const am = props.alertModel || {}
+    const am = props.alertModel
     const cls = [ALERT_OPTIONS.ALERT]
 
-    if (am.type) {
-        const typeVal = ALERT_OPTIONS.TYPE?.[am.type] ?? am.type
-        if (typeVal) cls.push(typeVal)
-    }
-
+    if (am.type) cls.push(ALERT_OPTIONS.TYPE?.[am.type] ?? am.type)
     if (am.isOutline) cls.push(ALERT_OPTIONS.OUTLINE)
     if (am.isDash) cls.push(ALERT_OPTIONS.DASH)
     if (am.isSoft) cls.push(ALERT_OPTIONS.SOFT)
-
-    if (am.direction) {
-        const dirVal = ALERT_OPTIONS.DIRECTION?.[am.direction] ?? am.direction
-        if (dirVal) cls.push(dirVal)
-    }
+    if (am.direction) cls.push(ALERT_OPTIONS.DIRECTION?.[am.direction] ?? am.direction)
 
     return cls
 })
@@ -130,9 +121,9 @@ const handleAction = (actionKey) => {
                 new ButtonModel({
                     label: '',
                     icon: XMarkIcon,
-                    color: 'GHOST',
-                    size: 'SM',
-                    variant: 'GHOST',
+                    color: BUTTON_OPTIONS.COLOR.NEUTRAL,
+                    size: BUTTON_OPTIONS.SIZE.SM,
+                    variant: BUTTON_OPTIONS.VARIANT.GHOST,
                     key: 'dismiss',
                 })
             "
