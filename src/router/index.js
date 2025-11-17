@@ -6,6 +6,7 @@ import BadgeView from '@/views/daisy-wrapper-views/BadgeView.vue'
 import AlertView from '@/views/daisy-wrapper-views/AlertView.vue'
 import ToastView from '@/views/daisy-wrapper-views/ToastView.vue'
 import ButtonView from '@/views/daisy-wrapper-views/ButtonView.vue'
+import CardView from '@/views/daisy-wrapper-views/CardView.vue'
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
@@ -15,6 +16,8 @@ const routes = [
     { path: '/alert-view', name: 'AlertView', component: AlertView },
     { path: '/toast-view', name: 'ToastView', component: ToastView },
     { path: '/button-view', name: 'ButtonView', component: ButtonView },
+    { path: '/card-view', name: 'CardView', component: CardView },
+
 ]
 
 const router = createRouter({
