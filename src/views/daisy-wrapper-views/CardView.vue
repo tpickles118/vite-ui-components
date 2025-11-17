@@ -8,7 +8,6 @@ import { CARD_OPTIONS, BUTTON_OPTIONS, BADGE_OPTIONS } from '@/constants/index.j
 import { CardModel } from '@/components/models/cardModel.js'
 import { ButtonModel } from '@/components/models/buttonModel.js'
 import { BadgeModel } from '@/components/models/badgeModel.js'
-import { IMAGES } from '@/constants/images.js'
 import DaisyCard from '@/components/base/DaisyCard.vue'
 import DaisyButton from '@/components/base/DaisyButton.vue'
 import DaisyBadge from '@/components/base/DaisyBadge.vue'
