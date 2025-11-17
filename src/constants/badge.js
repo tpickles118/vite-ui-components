@@ -1,4 +1,3 @@
-javascript
 /**
  * badge.js
  * DaisyUI Badge component styling constants.

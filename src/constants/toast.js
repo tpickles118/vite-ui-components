@@ -1,4 +1,3 @@
-javascript
 /**
  * toast.js
  * DaisyUI Toast component styling constants.
