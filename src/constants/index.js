@@ -1,6 +1,6 @@
 /**
  * constants/index.js
- * DaisyUI component styling constants for alerts and badges.
+ * Project constants
  */
 
 export const ALERT_OPTIONS = {
@@ -17,6 +17,55 @@ export const ALERT_OPTIONS = {
     DIRECTION: {
         VERTICAL: 'alert-vertical',
         HORIZONTAL: 'alert-horizontal',
+    },
+}
+
+export const CARD_OPTIONS = {
+    CARD: 'card',
+
+    // Card parts
+    BODY: 'card-body',
+    TITLE: 'card-title',
+    ACTIONS: 'card-actions',
+
+    // Size variants
+    SIZE: {
+        XS: 'card-xs',
+        SM: 'card-sm',
+        MD: 'card-md',
+        LG: 'card-lg',
+        XL: 'card-xl',
+    },
+
+    // Layout variants
+    LAYOUT: {
+        SIDE: 'card-side', // Horizontal layout
+        COMPACT: 'card-compact', // Reduced padding
+        NORMAL: 'card-normal', // Normal padding
+    },
+
+    // Border variants
+    BORDER: 'card-bordered',
+    DASH: 'card-dash',
+
+    // Background variants
+    IMAGE_FULL: 'image-full', // Full background image
+
+    // Shadow utilities
+    SHADOW: {
+        SM: 'shadow-sm',
+        MD: 'shadow-md',
+        LG: 'shadow-lg',
+        XL: 'shadow-xl',
+        NONE: 'shadow-none',
+    },
+
+    // Width utilities
+    WIDTH: {
+        FULL: 'w-full',
+        SM: 'w-96',
+        MD: 'w-[28rem]',
+        LG: 'w-[32rem]',
     },
 }
 
@@ -82,7 +131,6 @@ export const BUTTON_OPTIONS = {
         DISABLED: 'btn-disabled',
     },
 }
-
 
 export const TOAST_OPTIONS = {
     TOAST: 'toast',
