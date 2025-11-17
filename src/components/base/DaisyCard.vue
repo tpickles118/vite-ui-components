@@ -1,15 +1,21 @@
+<!-- DaisyCard.vue -->
+<!-- Reusable card component with DaisyUI styling and flexible slot support. -->
+
 <script setup>
 import { computed } from 'vue'
-import { CARD_OPTIONS } from '@/constants'
+import { CARD_OPTIONS } from '@/constants/index.js'
 import { CardModel } from '@/components/models/cardModel.js'
 
 const props = defineProps({
     cardModel: {
-        type: [Object, CardModel],
+        type: Object, // CardModel
         required: true,
     },
 })
 
+/**
+ * Builds CSS classes for the card container
+ */
 const cardClasses = computed(() => {
     const cm = props.cardModel
     const cls = [CARD_OPTIONS.CARD]
