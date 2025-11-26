@@ -8,22 +8,26 @@ export const ROUTE_NAMES = {
     HOME: 'Home',
     ABOUT: 'About',
     USERS_API: 'UsersApi',
-    BADGE_VIEW: 'BadgeView',
+
     ALERT_VIEW: 'AlertView',
-    TOAST_VIEW: 'ToastView',
+    AVATAR_VIEW: 'AvatarView',
+    BADGE_VIEW: 'BadgeView',
     BUTTON_VIEW: 'ButtonView',
     CARD_VIEW: 'CardView',
+    TOAST_VIEW: 'ToastView',
 }
 
 export const ROUTE_PATHS = {
     HOME: '/',
     ABOUT: '/about',
     USERS_API: '/users-api',
-    BADGE_VIEW: '/badge-view',
+
     ALERT_VIEW: '/alert-view',
-    TOAST_VIEW: '/toast-view',
+    AVATAR_VIEW: '/avatar-view',
+    BADGE_VIEW: '/badge-view',
     BUTTON_VIEW: '/button-view',
     CARD_VIEW: '/card-view',
+    TOAST_VIEW: '/toast-view',
 }
 
 /**
@@ -33,7 +37,7 @@ export const ROUTE_META = {
     [ROUTE_NAMES.HOME]: {
         title: 'Home',
         description: 'Welcome to Daisy Component Tests',
-        icon: 'HomeIcon', // For future icon integration
+        icon: 'HomeIcon',
     },
     [ROUTE_NAMES.ABOUT]: {
         title: 'About',
@@ -45,22 +49,23 @@ export const ROUTE_META = {
         description: 'User data fetching demonstration',
         icon: 'UsersIcon',
     },
-    [ROUTE_NAMES.BADGE_VIEW]: {
-        title: 'Badge Tests',
-        description: 'DaisyUI Badge component examples',
-        icon: 'TagIcon',
-        category: 'components',
-    },
+
     [ROUTE_NAMES.ALERT_VIEW]: {
         title: 'Alert Tests',
         description: 'DaisyUI Alert component examples',
         icon: 'BellAlertIcon',
         category: 'components',
     },
-    [ROUTE_NAMES.TOAST_VIEW]: {
-        title: 'Toast Tests',
-        description: 'DaisyUI Toast notification examples',
-        icon: 'ChatBubbleBottomCenterTextIcon',
+    [ROUTE_NAMES.AVATAR_VIEW]: {
+        title: 'Avatar Tests',
+        description: 'DaisyUI Avatar component examples',
+        icon: 'UserCircleIcon',
+        category: 'components',
+    },
+    [ROUTE_NAMES.BADGE_VIEW]: {
+        title: 'Badge Tests',
+        description: 'DaisyUI Badge component examples',
+        icon: 'TagIcon',
         category: 'components',
     },
     [ROUTE_NAMES.BUTTON_VIEW]: {
@@ -75,6 +80,12 @@ export const ROUTE_META = {
         icon: 'RectangleStackIcon',
         category: 'components',
     },
+    [ROUTE_NAMES.TOAST_VIEW]: {
+        title: 'Toast Tests',
+        description: 'DaisyUI Toast notification examples',
+        icon: 'ChatBubbleBottomCenterTextIcon',
+        category: 'components',
+    },
 }
 
 /**
@@ -82,6 +93,7 @@ export const ROUTE_META = {
  * Maps directly to Vue Router route definitions
  */
 export const ROUTES = [
+    // Base routes
     {
         path: ROUTE_PATHS.HOME,
         name: ROUTE_NAMES.HOME,
@@ -100,12 +112,8 @@ export const ROUTES = [
         component: () => import('@/views/UsersApi.vue'),
         meta: ROUTE_META[ROUTE_NAMES.USERS_API],
     },
-    {
-        path: ROUTE_PATHS.BADGE_VIEW,
-        name: ROUTE_NAMES.BADGE_VIEW,
-        component: () => import('@/views/daisy-wrapper-views/BadgeView.vue'),
-        meta: ROUTE_META[ROUTE_NAMES.BADGE_VIEW],
-    },
+
+    // Component routes
     {
         path: ROUTE_PATHS.ALERT_VIEW,
         name: ROUTE_NAMES.ALERT_VIEW,
@@ -113,10 +121,16 @@ export const ROUTES = [
         meta: ROUTE_META[ROUTE_NAMES.ALERT_VIEW],
     },
     {
-        path: ROUTE_PATHS.TOAST_VIEW,
-        name: ROUTE_NAMES.TOAST_VIEW,
-        component: () => import('@/views/daisy-wrapper-views/ToastView.vue'),
-        meta: ROUTE_META[ROUTE_NAMES.TOAST_VIEW],
+        path: ROUTE_PATHS.AVATAR_VIEW,
+        name: ROUTE_NAMES.AVATAR_VIEW,
+        component: () => import('@/views/daisy-wrapper-views/AvatarView.vue'),
+        meta: ROUTE_META[ROUTE_NAMES.AVATAR_VIEW],
+    },
+    {
+        path: ROUTE_PATHS.BADGE_VIEW,
+        name: ROUTE_NAMES.BADGE_VIEW,
+        component: () => import('@/views/daisy-wrapper-views/BadgeView.vue'),
+        meta: ROUTE_META[ROUTE_NAMES.BADGE_VIEW],
     },
     {
         path: ROUTE_PATHS.BUTTON_VIEW,
@@ -130,4 +144,11 @@ export const ROUTES = [
         component: () => import('@/views/daisy-wrapper-views/CardView.vue'),
         meta: ROUTE_META[ROUTE_NAMES.CARD_VIEW],
     },
+    {
+        path: ROUTE_PATHS.TOAST_VIEW,
+        name: ROUTE_NAMES.TOAST_VIEW,
+        component: () => import('@/views/daisy-wrapper-views/ToastView.vue'),
+        meta: ROUTE_META[ROUTE_NAMES.TOAST_VIEW],
+    },
 ]
+ 
