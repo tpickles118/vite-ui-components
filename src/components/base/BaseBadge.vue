@@ -5,7 +5,7 @@
 <script setup>
 import { computed } from 'vue'
 import { BADGE_OPTIONS } from '@/constants'
-import { BadgeModel } from '@/components/models/badgeModel.js'
+import { BadgeModel } from '@/components/models/base/badgeModel.js'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps({

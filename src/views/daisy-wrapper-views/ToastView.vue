@@ -4,9 +4,9 @@
 <script setup>
 import { ref } from 'vue'
 import { ALERT_OPTIONS, BUTTON_OPTIONS, TOAST_OPTIONS } from '@/constants'
-import { ToastModel } from '@/components/models/toastModel.js'
-import { AlertModel } from '@/components/models/alertModel.js'
-import { ButtonModel } from '@/components/models/buttonModel'
+import { ToastModel } from '@/components/models/base/toastModel.js'
+import { AlertModel } from '@/components/models/base/alertModel.js'
+import { ButtonModel } from '@/components/models/base/buttonModel'
 import BaseToast from '@/components/base/BaseToast.vue'
 import DaisyButton from '@/components/base/BaseButton.vue'
 

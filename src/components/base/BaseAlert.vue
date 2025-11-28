@@ -5,8 +5,8 @@
 <script setup>
 import { computed } from 'vue'
 import { ALERT_OPTIONS, BUTTON_OPTIONS } from '@/constants/index.js'
-import { AlertModel } from '@/components/models/alertModel.js'
-import { ButtonModel } from '../models/buttonModel.js'
+import { AlertModel } from '@/components/models/base/alertModel.js'
+import { ButtonModel } from '../models/base/buttonModel.js'
 import DaisyButton from '@/components/base/BaseButton.vue'
 
 import {

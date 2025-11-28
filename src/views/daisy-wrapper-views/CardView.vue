@@ -5,9 +5,9 @@
 <script setup>
 import { ref } from 'vue'
 import { CARD_OPTIONS, BUTTON_OPTIONS, BADGE_OPTIONS, IMAGES } from '@/constants/index.js'
-import { CardModel } from '@/components/models/cardModel.js'
-import { ButtonModel } from '@/components/models/buttonModel.js'
-import { BadgeModel } from '@/components/models/badgeModel.js'
+import { CardModel } from '@/components/models/base/cardModel.js'
+import { ButtonModel } from '@/components/models/base/buttonModel.js'
+import { BadgeModel } from '@/components/models/base/badgeModel.js'
 import BaseCard from '@/components/base/BaseCard.vue'
 import BaseButton from '@/components/base/BaseButton.vue'
 import BaseBadge from '@/components/base/BaseBadge.vue'

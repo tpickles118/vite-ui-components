@@ -5,7 +5,7 @@
 <script setup>
 import { computed } from 'vue'
 import { CARD_OPTIONS } from '@/constants/index.js'
-import { CardModel } from '@/components/models/cardModel.js'
+import { CardModel } from '@/components/models/base/cardModel.js'
 
 const props = defineProps({
     cardModel: {

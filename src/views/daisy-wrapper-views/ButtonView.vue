@@ -4,7 +4,7 @@
 <script setup>
 import { ref } from 'vue'
 import { BUTTON_OPTIONS } from '@/constants'
-import { ButtonModel } from '@/components/models/buttonModel.js'
+import { ButtonModel } from '@/components/models/base/buttonModel.js'
 import BaseButton from '@/components/base/BaseButton.vue'
 import { RocketLaunchIcon, CheckCircleIcon } from '@heroicons/vue/24/outline'
 

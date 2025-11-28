@@ -1,6 +1,6 @@
 <script setup>
 import { AVATAR_OPTIONS } from '@/constants'
-import { AvatarModel } from '@/components/models/avatarModel.js'
+import { AvatarModel } from '@/components/models/base/avatarModel.js'
 import BaseAvatar from '@/components/base/BaseAvatar.vue'
 
 // import avatar images

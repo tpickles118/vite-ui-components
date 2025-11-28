@@ -1,7 +1,7 @@
 <script setup>
 import { HomeIcon, IdentificationIcon } from '@heroicons/vue/24/outline'
 import BaseBadge from '@/components/base/BaseBadge.vue'
-import { BadgeModel } from '@/components/models/badgeModel.js'
+import { BadgeModel } from '@/components/models/base/badgeModel.js'
 import { ROUTE_PATHS } from '@/constants'
 
 const appName = import.meta.env.VITE_APP_NAME

@@ -4,9 +4,9 @@
 <script setup>
 import { ref } from 'vue'
 import { ALERT_OPTIONS, BUTTON_OPTIONS } from '@/constants'
-import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js'
+import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/base/alertModel.js'
 import BaseAlert from '@/components/base/BaseAlert.vue'
-import { ButtonModel } from '@/components/models/buttonModel.js'
+import { ButtonModel } from '@/components/models/base/buttonModel.js'
 import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
 // Basic alert examples

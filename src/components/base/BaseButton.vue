@@ -5,7 +5,7 @@
 <script setup>
 import { computed } from 'vue'
 import { BUTTON_OPTIONS } from '@/constants'
-import { ButtonModel } from '@/components/models/buttonModel.js'
+import { ButtonModel } from '@/components/models/base/buttonModel.js'
 
 const props = defineProps({
     buttonModel: {
