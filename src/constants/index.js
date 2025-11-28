@@ -8,6 +8,7 @@
  */
 
 export { ALERT_OPTIONS } from '@/constants/alert.js'
+export { AVATAR_OPTIONS } from '@/constants/avatar.js'
 export { BADGE_OPTIONS } from '@/constants/badge.js'
 export { BUTTON_OPTIONS } from '@/constants/button.js'
 export { CARD_OPTIONS } from '@/constants/card.js'
