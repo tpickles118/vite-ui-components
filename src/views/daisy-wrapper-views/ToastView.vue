@@ -1,5 +1,5 @@
 <!-- ToastView.vue
-  Demo view showcasing DaisyToast component with different notification types.
+  Demo view showcasing BaseToast component with different notification types.
 -->
 <script setup>
 import { ref } from 'vue'
@@ -7,8 +7,8 @@ import { ALERT_OPTIONS, BUTTON_OPTIONS, TOAST_OPTIONS } from '@/constants'
 import { ToastModel } from '@/components/models/toastModel.js'
 import { AlertModel } from '@/components/models/alertModel.js'
 import { ButtonModel } from '@/components/models/buttonModel'
-import DaisyToast from '@/components/base/DaisyToast.vue'
-import DaisyButton from '@/components/base/DaisyButton.vue'
+import BaseToast from '@/components/base/BaseToast.vue'
+import DaisyButton from '@/components/base/BaseButton.vue'
 
 // Creates an alert model from simplified parameters
 function makeAlert(type, message = '', title = '', ...rest) {
@@ -72,7 +72,7 @@ function hideToast() {
       <button class="btn btn-ghost" @click="hideToast">Hide Toast</button>
     </div>
 
-    <DaisyToast :toast-model="toastModel" @auto-hide="hideToast" />
+    <BaseToast :toast-model="toastModel" @auto-hide="hideToast" />
 
     <div class="mt-8">
       <DaisyButton

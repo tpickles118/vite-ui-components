@@ -1,11 +1,11 @@
 <!-- ButtonView.vue
-  Demo view showcasing DaisyButton component with all style variants, states, and event handling.
+  Demo view showcasing BaseButton component with all style variants, states, and event handling.
 -->
 <script setup>
 import { ref } from 'vue'
 import { BUTTON_OPTIONS } from '@/constants'
 import { ButtonModel } from '@/components/models/buttonModel.js'
-import DaisyButton from '@/components/base/DaisyButton.vue'
+import BaseButton from '@/components/base/BaseButton.vue'
 import { RocketLaunchIcon, CheckCircleIcon } from '@heroicons/vue/24/outline'
 
 // Color variant examples
@@ -187,20 +187,20 @@ function handleMouseLeave({ buttonModel }) {
 
 <template>
   <div class="container mx-auto p-8">
-    <h1 class="text-4xl font-bold mb-6">DaisyButton Component Test</h1>
+    <h1 class="text-4xl font-bold mb-6">BaseButton Component Test</h1>
 
     <!-- Color variants -->
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Color Variants</h2>
       <div class="flex flex-wrap gap-2">
-        <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="secondaryBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="accentBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="infoBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="successBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="warningBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="errorBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="neutralBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="primaryBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="secondaryBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="accentBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="infoBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="successBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="warningBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="errorBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="neutralBtn" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -208,9 +208,9 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Size Variants</h2>
       <div class="flex gap-2">
-        <DaisyButton :button-model="smallBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="primaryBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="largeBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="smallBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="primaryBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="largeBtn" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -218,11 +218,11 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Style Variants</h2>
       <div class="flex flex-wrap gap-2">
-        <DaisyButton :button-model="outlineBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="ghostBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="dashBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="softBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="linkBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="outlineBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="ghostBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="dashBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="softBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="linkBtn" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -230,10 +230,10 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Shape Variants</h2>
       <div class="flex flex-wrap gap-2 items-center">
-        <DaisyButton :button-model="circleBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="squareBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="wideBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="blockBtn" class="w-full" @click="handleButtonClick" />
+        <BaseButton :button-model="circleBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="squareBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="wideBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="blockBtn" class="w-full" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -241,9 +241,9 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">States</h2>
       <div class="flex gap-2">
-        <DaisyButton :button-model="activeBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="disabledBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="loadingBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="activeBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="disabledBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="loadingBtn" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -251,8 +251,8 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Icon Content</h2>
       <div class="flex gap-2">
-        <DaisyButton :button-model="iconLeftBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="iconRightBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="iconLeftBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="iconRightBtn" @click="handleButtonClick" />
       </div>
     </section>
 
@@ -260,7 +260,7 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Event Handling</h2>
       <div class="flex gap-2">
-        <DaisyButton
+        <BaseButton
           :button-model="primaryBtn"
           @focus="handleFocus"
           @blur="handleBlur"
@@ -268,7 +268,7 @@ function handleMouseLeave({ buttonModel }) {
           @mouseleave="handleMouseLeave"
           @click="handleButtonClick"
         />
-        <DaisyButton
+        <BaseButton
           :button-model="disabledBtn"
           @focus="handleFocus"
           @blur="handleBlur"
@@ -286,13 +286,13 @@ function handleMouseLeave({ buttonModel }) {
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-2">Edge Cases</h2>
       <div class="flex gap-2">
-        <DaisyButton
+        <BaseButton
           :button-model="loadingDisabledBtn"
           @click="handleButtonClick"
           @focus="handleFocus"
         />
-        <DaisyButton :button-model="iconOnlyBtn" @click="handleButtonClick" />
-        <DaisyButton :button-model="longLabelBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="iconOnlyBtn" @click="handleButtonClick" />
+        <BaseButton :button-model="longLabelBtn" @click="handleButtonClick" />
       </div>
     </section>
   </div>

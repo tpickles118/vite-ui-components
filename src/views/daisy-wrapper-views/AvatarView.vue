@@ -1,7 +1,7 @@
 <script setup>
 import { AVATAR_OPTIONS } from '@/constants'
 import { AvatarModel } from '@/components/models/avatarModel.js'
-import DaisyAvatar from '@/components/base/DaisyAvatar.vue'
+import BaseAvatar from '@/components/base/BaseAvatar.vue'
 
 // import avatar images
 import avatar1 from '@/assets/images/avatar1.png'
@@ -217,15 +217,15 @@ const presenceAvatars = [
 
 <template>
     <div class="container mx-auto py-8">
-        <h1 class="text-4xl font-bold mb-6">DaisyAvatar Component Tests</h1>
+        <h1 class="text-4xl font-bold mb-6">BaseAvatar Component Tests</h1>
 
         <!-- Custom slot example -->
         <div class="mt-8">
             <h2 class="text-2xl font-semibold mb-4">Custom Slot Example:</h2>
             <div class="flex flex-wrap gap-6 items-center">
-                <DaisyAvatar :avatar-model="customSlotAvatar">
+                <BaseAvatar :avatar-model="customSlotAvatar">
                     <span class="text-4xl">:)</span>
-                </DaisyAvatar>
+                </BaseAvatar>
             </div>
         </div>
 
@@ -233,7 +233,7 @@ const presenceAvatars = [
         <div class="mt-8">
             <h2 class="text-2xl font-semibold mb-4">Placeholders with Auto Text:</h2>
             <div class="flex flex-wrap gap-6 items-center">
-                <DaisyAvatar v-for="a in placeholderAvatars" :key="a.id" :avatar-model="a" />
+                <BaseAvatar v-for="a in placeholderAvatars" :key="a.id" :avatar-model="a" />
             </div>
         </div>
 
@@ -243,7 +243,7 @@ const presenceAvatars = [
             <div class="flex flex-wrap gap-6 items-center">
                 <div v-for="a in sizeAvatars" :key="a.id">
                     <div class="text-sm mb-2">{{ a.alt }}</div>
-                    <DaisyAvatar :avatar-model="a" />
+                    <BaseAvatar :avatar-model="a" />
                 </div>
             </div>
         </div>
@@ -254,7 +254,7 @@ const presenceAvatars = [
             <div class="flex flex-wrap gap-6 items-center">
                 <div v-for="a in shapeAvatars" :key="a.id">
                     <div class="text-sm mb-2">{{ a.alt }}</div>
-                    <DaisyAvatar :avatar-model="a" />
+                    <BaseAvatar :avatar-model="a" />
                 </div>
             </div>
         </div>
@@ -263,7 +263,7 @@ const presenceAvatars = [
         <div class="mt-8">
             <h2 class="text-2xl font-semibold mb-4">With Ring:</h2>
             <div class="flex flex-wrap gap-6 items-center">
-                <DaisyAvatar v-for="a in ringAvatars" :key="a.id" :avatar-model="a" />
+                <BaseAvatar v-for="a in ringAvatars" :key="a.id" :avatar-model="a" />
             </div>
         </div>
 
@@ -271,7 +271,7 @@ const presenceAvatars = [
         <div class="mt-8">
             <h2 class="text-2xl font-semibold mb-4">Online Status:</h2>
             <div class="flex flex-wrap gap-6 items-center">
-                <DaisyAvatar v-for="a in presenceAvatars" :key="a.id" :avatar-model="a" />
+                <BaseAvatar v-for="a in presenceAvatars" :key="a.id" :avatar-model="a" />
             </div>
         </div>
     </div>

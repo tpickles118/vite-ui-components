@@ -5,7 +5,7 @@
 <script setup>
 import { computed, watch, onBeforeUnmount } from 'vue'
 import { TOAST_OPTIONS } from '@/constants/index.js'
-import DaisyAlert from '@/components/base/DaisyAlert.vue'
+import DaisyAlert from '@/components/base/BaseAlert.vue'
 
 const props = defineProps({
   toastModel: {

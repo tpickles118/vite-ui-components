@@ -1,11 +1,11 @@
 <!-- AlertView.vue
-  Demo view showcasing DaisyAlert component with various configurations.
+  Demo view showcasing BaseAlert component with various configurations.
 -->
 <script setup>
 import { ref } from 'vue'
 import { ALERT_OPTIONS, BUTTON_OPTIONS } from '@/constants'
 import { AlertModel, WarningAlertModel, CustomAlertModel } from '@/components/models/alertModel.js'
-import DaisyAlert from '@/components/base/DaisyAlert.vue'
+import BaseAlert from '@/components/base/BaseAlert.vue'
 import { ButtonModel } from '@/components/models/buttonModel.js'
 import { RocketLaunchIcon } from '@heroicons/vue/24/outline'
 
@@ -164,67 +164,67 @@ const handleCustomSee = () => {
         <div class="space-y-4">
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Success with AlertModel</h3>
-                <DaisyAlert :alert-model="successAlert" />
+                <BaseAlert :alert-model="successAlert" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Error with AlertModel</h3>
-                <DaisyAlert :alert-model="errorAlert" />
+                <BaseAlert :alert-model="errorAlert" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Info with AlertModel</h3>
-                <DaisyAlert :alert-model="infoAlert" />
+                <BaseAlert :alert-model="infoAlert" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert as basic Warning with AlertModel</h3>
-                <DaisyAlert :alert-model="warningAlert" />
+                <BaseAlert :alert-model="warningAlert" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert with WarningAlertModel</h3>
-                <DaisyAlert :alert-model="Warning" />
+                <BaseAlert :alert-model="Warning" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with AlertModel, Message Overridden
                 </h3>
-                <DaisyAlert :alert-model="successAlert">
+                <BaseAlert :alert-model="successAlert">
                     Overridden slot message for success alert
-                </DaisyAlert>
+                </BaseAlert>
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">
                     Alert as basic Success with CustomAlertModel, inject different icon
                 </h3>
-                <DaisyAlert :alert-model="customAlert" class="alert-success">
+                <BaseAlert :alert-model="customAlert" class="alert-success">
                     <template #icon>
                         <component :is="customAlert.customIcon" class="size-6" />
                     </template>
-                </DaisyAlert>
+                </BaseAlert>
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert with Action Button</h3>
-                <DaisyAlert :alert-model="infoAlert2" @button-click="handleButtonClick" />
+                <BaseAlert :alert-model="infoAlert2" @button-click="handleButtonClick" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert with Multiple Buttons</h3>
-                <DaisyAlert :alert-model="warningAlert2" @button-click="handleButtonClick" />
+                <BaseAlert :alert-model="warningAlert2" @button-click="handleButtonClick" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Dismissible Alert</h3>
-                <DaisyAlert :alert-model="successAlert2" @dismiss="handleDismiss" />
+                <BaseAlert :alert-model="successAlert2" @dismiss="handleDismiss" />
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Error Alert with Actions</h3>
-                <DaisyAlert
+                <BaseAlert
                     :alert-model="errorAlert2"
                     @button-click="handleButtonClick"
                     @dismiss="handleDismiss"
@@ -233,16 +233,16 @@ const handleCustomSee = () => {
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Alert with Custom Action Slot</h3>
-                <DaisyAlert :alert-model="customAlert2" @action="handleAction">
+                <BaseAlert :alert-model="customAlert2" @action="handleAction">
                     <template #actions="{ onAction }">
                         <button class="btn btn-sm btn-primary" @click="handleCustomSee">See</button>
                     </template>
-                </DaisyAlert>
+                </BaseAlert>
             </section>
 
             <section>
                 <h3 class="text-lg font-semibold mb-2">Complex Alert Example</h3>
-                <DaisyAlert
+                <BaseAlert
                     :alert-model="
                         new AlertModel({
                             id: 'complex-alert',

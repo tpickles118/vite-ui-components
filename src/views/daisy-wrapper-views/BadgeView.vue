@@ -5,7 +5,7 @@
 import { ref } from 'vue'
 import { BADGE_OPTIONS } from '@/constants'
 import { BadgeModel } from '@/components/models/badgeModel.js'
-import DaisyBadge from '@/components/base/DaisyBadge.vue'
+import DaisyBadge from '@/components/base/BaseBadge.vue'
 
 // Basic badge examples
 const basic = new BadgeModel()

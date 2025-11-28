@@ -1,6 +1,6 @@
 <!--
   CardView.vue
-  Demo view showcasing DaisyCard component with various layouts, sizes, and style configurations.
+  Demo view showcasing BaseCard component with various layouts, sizes, and style configurations.
 -->
 <script setup>
 import { ref } from 'vue'
@@ -8,9 +8,9 @@ import { CARD_OPTIONS, BUTTON_OPTIONS, BADGE_OPTIONS, IMAGES } from '@/constants
 import { CardModel } from '@/components/models/cardModel.js'
 import { ButtonModel } from '@/components/models/buttonModel.js'
 import { BadgeModel } from '@/components/models/badgeModel.js'
-import DaisyCard from '@/components/base/DaisyCard.vue'
-import DaisyButton from '@/components/base/DaisyButton.vue'
-import DaisyBadge from '@/components/base/DaisyBadge.vue'
+import BaseCard from '@/components/base/BaseCard.vue'
+import BaseButton from '@/components/base/BaseButton.vue'
+import BaseBadge from '@/components/base/BaseBadge.vue'
 
 // Basic card examples
 const basicCard = new CardModel({
@@ -126,16 +126,16 @@ function handleDetailsClick() {
         <!-- Basic card -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Basic Card</h2>
-            <DaisyCard :card-model="basicCard">
+            <BaseCard :card-model="basicCard">
                 <template #title>Card Title</template>
                 <p>This is a basic card with title and body content.</p>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Card with image -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Card with Image</h2>
-            <DaisyCard :card-model="basicCard">
+            <BaseCard :card-model="basicCard">
                 <template #image>
                     <figure>
                         <img :src="IMAGES.SHOES" alt="Shoes" />
@@ -144,15 +144,15 @@ function handleDetailsClick() {
                 <template #title>Shoes!</template>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <template #actions>
-                    <DaisyButton :button-model="buyButton" @click="handleBuyClick" />
+                    <BaseButton :button-model="buyButton" @click="handleBuyClick" />
                 </template>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Card side (horizontal) -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Horizontal Card (card-side)</h2>
-            <DaisyCard :card-model="sideCard">
+            <BaseCard :card-model="sideCard">
                 <template #image>
                     <figure class="w-48">
                         <img :src="IMAGES.MOVIE" alt="Movie" />
@@ -161,7 +161,7 @@ function handleDetailsClick() {
                 <template #title>New Movie!</template>
                 <p>Watch this amazing new release now.</p>
                 <template #actions>
-                    <DaisyButton
+                    <BaseButton
                         :button-model="
                             new ButtonModel({
                                 label: 'Watch',
@@ -171,22 +171,22 @@ function handleDetailsClick() {
                         "
                     />
                 </template>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Size variants -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Size Variants</h2>
             <div class="space-y-4">
-                <DaisyCard :card-model="smallCard">
+                <BaseCard :card-model="smallCard">
                     <template #title>Small Card</template>
                     <p class="text-sm">This is a small card (card-sm).</p>
-                </DaisyCard>
+                </BaseCard>
 
-                <DaisyCard :card-model="largeCard">
+                <BaseCard :card-model="largeCard">
                     <template #title>Large Card</template>
                     <p>This is a large card (card-lg) with more prominent styling.</p>
-                </DaisyCard>
+                </BaseCard>
             </div>
         </section>
 
@@ -194,27 +194,27 @@ function handleDetailsClick() {
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Style Variants</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <DaisyCard :card-model="borderedCard">
+                <BaseCard :card-model="borderedCard">
                     <template #title>Bordered</template>
                     <p>Card with border.</p>
-                </DaisyCard>
+                </BaseCard>
 
-                <DaisyCard :card-model="dashCard">
+                <BaseCard :card-model="dashCard">
                     <template #title>Dashed</template>
                     <p>Card with dashed border.</p>
-                </DaisyCard>
+                </BaseCard>
 
-                <DaisyCard :card-model="shadowCard">
+                <BaseCard :card-model="shadowCard">
                     <template #title>Shadow XL</template>
                     <p>Card with large shadow.</p>
-                </DaisyCard>
+                </BaseCard>
             </div>
         </section>
 
         <!-- Product card example -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Product Card with Badges</h2>
-            <DaisyCard :card-model="productCard">
+            <BaseCard :card-model="productCard">
                 <template #image>
                     <figure>
                         <img :src="IMAGES.PRODUCT" alt="Product" />
@@ -224,24 +224,24 @@ function handleDetailsClick() {
                     <div class="flex justify-between items-center">
                         <span>Premium Widget</span>
                         <div class="space-x-2">
-                            <DaisyBadge :badge-model="newBadge" />
-                            <DaisyBadge :badge-model="saleBadge" />
+                            <BaseBadge :badge-model="newBadge" />
+                            <BaseBadge :badge-model="saleBadge" />
                         </div>
                     </div>
                 </template>
                 <p>High-quality product with amazing features. Limited time offer!</p>
                 <div class="text-2xl font-bold text-primary mt-2">$99.99</div>
                 <template #actions>
-                    <DaisyButton :button-model="buyButton" @click="handleBuyClick" />
-                    <DaisyButton :button-model="detailsButton" @click="handleDetailsClick" />
+                    <BaseButton :button-model="buyButton" @click="handleBuyClick" />
+                    <BaseButton :button-model="detailsButton" @click="handleDetailsClick" />
                 </template>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Image full background -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Card with Full Background Image</h2>
-            <DaisyCard :card-model="imageFullCard">
+            <BaseCard :card-model="imageFullCard">
                 <template #image>
                     <figure>
                         <img :src="IMAGES.BACKGROUND" alt="Background" />
@@ -252,7 +252,7 @@ function handleDetailsClick() {
                 </template>
                 <p class="text-white">Content overlays the image background.</p>
                 <template #actions>
-                    <DaisyButton
+                    <BaseButton
                         :button-model="
                             new ButtonModel({
                                 label: 'Explore',
@@ -262,31 +262,31 @@ function handleDetailsClick() {
                         "
                     />
                 </template>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Compact layout -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Compact Card</h2>
-            <DaisyCard :card-model="compactCard">
+            <BaseCard :card-model="compactCard">
                 <template #title>Compact Layout</template>
                 <p>This card uses reduced padding (card-compact).</p>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Custom classes -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Card with Custom Classes</h2>
-            <DaisyCard :card-model="customCard">
+            <BaseCard :card-model="customCard">
                 <template #title>Hover Me!</template>
                 <p>This card has custom Tailwind classes for hover effects.</p>
-            </DaisyCard>
+            </BaseCard>
         </section>
 
         <!-- Complex example -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Complex Card Example</h2>
-            <DaisyCard
+            <BaseCard
                 :card-model="
                     new CardModel({
                         isBordered: true,
@@ -303,7 +303,7 @@ function handleDetailsClick() {
                 <template #title>
                     <div class="flex justify-between items-center w-full">
                         <span>Premium Plan</span>
-                        <DaisyBadge
+                        <BaseBadge
                             :badge-model="
                                 new BadgeModel({
                                     label: 'Popular',
@@ -328,7 +328,7 @@ function handleDetailsClick() {
                 </div>
 
                 <template #actions>
-                    <DaisyButton
+                    <BaseButton
                         :button-model="
                             new ButtonModel({
                                 label: 'Start Free Trial',
@@ -338,7 +338,7 @@ function handleDetailsClick() {
                             })
                         "
                     />
-                    <DaisyButton
+                    <BaseButton
                         :button-model="
                             new ButtonModel({
                                 label: 'Learn More',
@@ -350,7 +350,7 @@ function handleDetailsClick() {
                         "
                     />
                 </template>
-            </DaisyCard>
+            </BaseCard>
         </section>
     </div>
 </template>

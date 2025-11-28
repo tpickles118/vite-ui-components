@@ -1,6 +1,6 @@
 <script setup>
 import { HomeIcon, IdentificationIcon } from '@heroicons/vue/24/outline'
-import DaisyBadge from '@/components/base/DaisyBadge.vue'
+import BaseBadge from '@/components/base/BaseBadge.vue'
 import { BadgeModel } from '@/components/models/badgeModel.js'
 import { ROUTE_PATHS } from '@/constants'
 
@@ -40,7 +40,7 @@ const debugBadgeModel = new BadgeModel({
 
         <router-view />
         <div v-if="debugMode" class="ml-4 text-center">
-            <DaisyBadge :badge-model="debugBadgeModel" />
+            <BaseBadge :badge-model="debugBadgeModel" />
         </div>
     </div>
 </template>
