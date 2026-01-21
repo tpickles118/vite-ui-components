@@ -20,6 +20,8 @@ export class AvatarModel {
         ringOffsetSize = AVATAR_OPTIONS.RING_OFFSET_SIZE.OFFSET_2,
         ringOffsetColor = AVATAR_OPTIONS.RING_OFFSET_COLOR.BASE_100,
         customClasses = [],
+        isClickable = false,
+        isDisabled = false, 
     } = {}) {
         Object.defineProperty(this, 'id', {
             value: id,
@@ -43,6 +45,8 @@ export class AvatarModel {
         this.ringOffsetSize = ringOffsetSize
         this.ringOffsetColor = ringOffsetColor
         this.customClasses = customClasses
+        this.isClickable = isClickable
+        this.isDisabled = isDisabled
     }
 
     toJson() {
@@ -63,6 +67,8 @@ export class AvatarModel {
             ringOffsetSize: this.ringOffsetSize,
             ringOffsetColor: this.ringOffsetColor,
             customClasses: this.customClasses,
+            isClickable: this.isClickable,
+            isDisabled: this.isDisabled,
         }
     }
 
@@ -87,6 +93,8 @@ export class AvatarModel {
             this.ringColor === other.ringColor &&
             this.ringOffsetSize === other.ringOffsetSize &&
             this.ringOffsetColor === other.ringOffsetColor &&
+            this.isClickable === other.isClickable &&
+            this.isDisabled === other.isDisabled &&
             JSON.stringify(this.customClasses) === JSON.stringify(other.customClasses)
         )
     }
